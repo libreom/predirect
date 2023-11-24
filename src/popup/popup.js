@@ -8,6 +8,8 @@ document.addEventListener("DOMContentLoaded", function () {
     tiktok: document.getElementById("tiktokInstance"),
     quora: document.getElementById("quoraInstance"),
     fandom: document.getElementById("fandomInstance"),
+    imdb: document.getElementById("imdbInstance"),
+    genius: document.getElementById("geniusInstance"),
   };
 
   // Load saved preferences from storage
@@ -21,6 +23,8 @@ document.addEventListener("DOMContentLoaded", function () {
         tiktok: true,
         quora: true,
         fandom: true,
+        imdb: true,
+        genius: true,
       };
       let defaultCustomInstances = {
         youtubeInstance: "",
@@ -29,6 +33,8 @@ document.addEventListener("DOMContentLoaded", function () {
         tiktokInstance: "",
         quoraInstance: "",
         fandomInstance: "",
+        imdbInstance: "",
+        geniusInstance: "",
       };
       const savedRedirectServices =
         data.redirectServices || defaultRedirectServices;
@@ -55,13 +61,18 @@ document.addEventListener("DOMContentLoaded", function () {
       tiktok: document.getElementById("tiktok").checked,
       quora: document.getElementById("quora").checked,
       fandom: document.getElementById("fandom").checked,
+      imdb: document.getElementById("imdb").checked,
+      genius: document.getElementById("genius").checked,
     };
     const customInstances = {
       youtubeInstance: instances.youtube.value || "",
       twitterInstance: instances.twitter.value || "",
       mediumInstance: instances.medium.value || "",
       tiktokInstance: instances.tiktok.value || "",
+      quoraInstance: instances.quora.value || "",
       fandomInstance: instances.fandom.value || "",
+      imdbInstance: instances.imdb.value || "",
+      geniusInstance: instances.genius.value || "",
     };
 
     // Save preferences to storage

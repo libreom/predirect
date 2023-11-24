@@ -5,6 +5,8 @@ let defaultRedirectServices = {
   tiktok: true,
   quora: true,
   fandom: true,
+  imdb: true,
+  genius: true,
 };
 let defaultCustomInstances = {
   youtubeInstance: "",
@@ -13,6 +15,8 @@ let defaultCustomInstances = {
   tiktokInstance: "",
   quoraInstance: "",
   fandomInstance: "",
+  imdbInstance: "",
+  geniusInstance: "",
 };
 const youtubeInstances = [
   "anontube.lvkaszus.pl",
@@ -113,6 +117,22 @@ const fandomInstances = [
   "breeze.mint.lgbt",
   "breezewiki.woodland.cafe",
 ];
+const imdbInstances = [
+  "libremdb.pussthecat.org",
+  "libremdb.esmailelbob.xyz",
+  "libremdb.iket.me",
+  "binge.whatever.social",
+  "libremdb.lunar.icu",
+  "libremdb.catsarch.com",
+  "libremdb.frontendfriendly.xyz",
+];
+const geniusInstances = [
+  "dumb.privacydev.net",
+  "dm.vern.cc",
+  "sing.whatever.social",
+  "dumb.lunar.icu",
+  "dumb.esmailelbob.xyz",
+];
 function eventualUpdateRules() {
   chrome.storage.sync.get(
     ["redirectServices", "customInstances"],
@@ -146,6 +166,10 @@ function updateRules(parameterRedirectServices, customInstances) {
     customInstances.quoraInstance || getRandomInstance(quoraInstances);
   const randFandomInstance =
     customInstances.fandomInstance || getRandomInstance(fandomInstances);
+  const randImdbInstance =
+    customInstances.imdbInstance || getRandomInstance(imdbInstances);
+  const randGeniusInstance =
+    customInstances.geniusInstance || getRandomInstance(geniusInstances);
 
   function createRedirectRule(id, filter, instance) {
     return {
@@ -203,8 +227,14 @@ function updateRules(parameterRedirectServices, customInstances) {
       },
     });
   }
+  if (parameterRedirectServices.imdb) {
+    redirectRules.push(createRedirectRule(8, "imdb.com", randImdbInstance));
+  }
+  if (parameterRedirectServices.genius) {
+    redirectRules.push(createRedirectRule(9, "genius.com", randGeniusInstance));
+  }
   chrome.declarativeNetRequest.updateDynamicRules({
-    removeRuleIds: [1, 2, 3, 4, 5, 6, 7],
+    removeRuleIds: [1, 2, 3, 4, 5, 6, 7, 8, 9],
     addRules: redirectRules,
   });
   console.log("Updated Rules:");

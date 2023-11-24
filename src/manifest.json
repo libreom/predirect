@@ -24,6 +24,8 @@
     "*://*.medium.com/*",
     "*://*.tiktok.com/*",
     "*://*.quora.com/*",
-    "*://*.fandom.com/*"
+    "*://*.fandom.com/*",
+    "*://*.imdb.com/*",
+    "*://*.genius.com/*"
   ]
 }
