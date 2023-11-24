@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Predirect",
   "description": "Redirect to privacy friendly alternatives",
-  "version": "0.1",
+  "version": "0.2",
   "permissions": ["declarativeNetRequest", "storage"],
   "action": {
     "default_popup": "popup/popup.html",
@@ -22,6 +22,8 @@
     "*://*.twitter.com/*",
     "*://*.x.com/*",
     "*://*.medium.com/*",
-    "*://*.tiktok.com/*"
+    "*://*.tiktok.com/*",
+    "*://*.quora.com/*",
+    "*://*.fandom.com/*"
   ]
 }

@@ -3,12 +3,16 @@ let defaultRedirectServices = {
   twitter: true,
   medium: true,
   tiktok: true,
+  quora: true,
+  fandom: true,
 };
 let defaultCustomInstances = {
   youtubeInstance: "",
   twitterInstance: "",
   mediumInstance: "",
   tiktokInstance: "",
+  quoraInstance: "",
+  fandomInstance: "",
 };
 const youtubeInstances = [
   "anontube.lvkaszus.pl",
@@ -84,6 +88,31 @@ const tiktokInstances = [
   "proxitok.lunar.icu",
   "proxitok.privacy.com.de",
 ];
+const quoraInstances = [
+  "quetre.iket.me",
+  "quetre.pussthecat.org",
+  "quetre.esmailelbob.xyz",
+  "quetre.privacydev.net",
+  "quetre.catsarch.com",
+  "quetre.frontendfriendly.xyz",
+];
+const fandomInstances = [
+  "breezewiki.com",
+  "antifandom.com",
+  "breezewiki.pussthecat.org",
+  "bw.hamstro.dev",
+  "bw.projectsegfau.lt",
+  "breeze.hostux.net",
+  "bw.artemislena.eu",
+  "nerd.whatever.social",
+  "breezewiki.frontendfriendly.xyz",
+  "breeze.nohost.network",
+  "z.opnxng.com",
+  "breezewiki.hyperreal.coffee",
+  "breezewiki.catsarch.com",
+  "breeze.mint.lgbt",
+  "breezewiki.woodland.cafe",
+];
 function eventualUpdateRules() {
   chrome.storage.sync.get(
     ["redirectServices", "customInstances"],
@@ -113,6 +142,10 @@ function updateRules(parameterRedirectServices, customInstances) {
     customInstances.mediumInstance || getRandomInstance(mediumInstances);
   const randTiktokInstance =
     customInstances.tiktokInstance || getRandomInstance(tiktokInstances);
+  const randQuoraInstance =
+    customInstances.quoraInstance || getRandomInstance(quoraInstances);
+  const randFandomInstance =
+    customInstances.fandomInstance || getRandomInstance(fandomInstances);
 
   function createRedirectRule(id, filter, instance) {
     return {
@@ -121,6 +154,7 @@ function updateRules(parameterRedirectServices, customInstances) {
       condition: {
         urlFilter: `||${filter}`,
         resourceTypes: ["main_frame"],
+        excludedInitiatorDomains: [instance],
       },
       action: {
         type: "redirect",
@@ -133,35 +167,50 @@ function updateRules(parameterRedirectServices, customInstances) {
 
   if (parameterRedirectServices.youtube) {
     redirectRules.push(
-      createRedirectRule(1, "youtube.com", getRandomInstance(youtubeInstances))
+      createRedirectRule(1, "youtube.com", randYoutubeInstance)
     );
   }
 
   if (parameterRedirectServices.twitter) {
     redirectRules.push(
-      createRedirectRule(2, "twitter.com", getRandomInstance(twitterInstances))
+      createRedirectRule(2, "twitter.com", randTwitterInstance)
     );
-    redirectRules.push(
-      createRedirectRule(3, "x.com", getRandomInstance(twitterInstances))
-    );
+    redirectRules.push(createRedirectRule(3, "x.com", randTwitterInstance));
   }
 
   if (parameterRedirectServices.medium) {
-    redirectRules.push(
-      createRedirectRule(4, "medium.com", getRandomInstance(mediumInstances))
-    );
+    redirectRules.push(createRedirectRule(4, "medium.com", randMediumInstance));
   }
   if (parameterRedirectServices.tiktok) {
-    redirectRules.push(
-      createRedirectRule(5, "tiktok.com", getRandomInstance(tiktokInstances))
-    );
+    redirectRules.push(createRedirectRule(5, "tiktok.com", randTiktokInstance));
+  }
+  if (parameterRedirectServices.quora) {
+    redirectRules.push(createRedirectRule(6, "quora.com", randQuoraInstance));
+  }
+  if (parameterRedirectServices.fandom) {
+    redirectRules.push({
+      id: 7,
+      priority: 2,
+      condition: {
+        regexFilter: "^https://(.*)\\.fandom\\.com/(.*)$",
+        resourceTypes: ["main_frame"],
+      },
+      action: {
+        type: "redirect",
+        redirect: {
+          regexSubstitution: `https://${randFandomInstance}/\\1/\\2`,
+        },
+      },
+    });
   }
   chrome.declarativeNetRequest.updateDynamicRules({
-    removeRuleIds: [1, 2, 3, 4, 5],
+    removeRuleIds: [1, 2, 3, 4, 5, 6, 7],
     addRules: redirectRules,
   });
   console.log("Updated Rules:");
   console.log(redirectRules);
+  console.log(parameterRedirectServices);
+  console.log(customInstances);
 }
 
 setInterval(eventualUpdateRules, 10 * 60 * 1000);
