@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", function () {
     fandom: document.getElementById("fandomInstance"),
     imdb: document.getElementById("imdbInstance"),
     genius: document.getElementById("geniusInstance"),
+    ytmusic: document.getElementById("ytmusicInstance"),
+    goodreads: document.getElementById("goodreadsInstance"),
   };
 
   // Load saved preferences from storage
@@ -25,6 +27,8 @@ document.addEventListener("DOMContentLoaded", function () {
         fandom: true,
         imdb: true,
         genius: true,
+        ytmusic: true,
+        goodreads: true,
       };
       let defaultCustomInstances = {
         youtubeInstance: "",
@@ -35,6 +39,8 @@ document.addEventListener("DOMContentLoaded", function () {
         fandomInstance: "",
         imdbInstance: "",
         geniusInstance: "",
+        ytmusicInstance: "",
+        goodreadsInstance: "",
       };
       const savedRedirectServices =
         data.redirectServices || defaultRedirectServices;
@@ -63,6 +69,8 @@ document.addEventListener("DOMContentLoaded", function () {
       fandom: document.getElementById("fandom").checked,
       imdb: document.getElementById("imdb").checked,
       genius: document.getElementById("genius").checked,
+      ytmusic: document.getElementById("ytmusic").checked,
+      goodreads: document.getElementById("goodreads").checked,
     };
     const customInstances = {
       youtubeInstance: instances.youtube.value || "",
@@ -73,6 +81,8 @@ document.addEventListener("DOMContentLoaded", function () {
       fandomInstance: instances.fandom.value || "",
       imdbInstance: instances.imdb.value || "",
       geniusInstance: instances.genius.value || "",
+      ytmusicInstance: instances.ytmusic.value || "",
+      goodreadsInstance: instances.goodreads.value || "",
     };
 
     // Save preferences to storage

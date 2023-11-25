@@ -26,6 +26,7 @@
     "*://*.quora.com/*",
     "*://*.fandom.com/*",
     "*://*.imdb.com/*",
-    "*://*.genius.com/*"
+    "*://*.genius.com/*",
+    "*://*.goodreads.com/*"
   ]
 }

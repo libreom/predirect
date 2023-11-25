@@ -7,6 +7,8 @@ let defaultRedirectServices = {
   fandom: true,
   imdb: true,
   genius: true,
+  ytmusic: true,
+  goodreads: true,
 };
 let defaultCustomInstances = {
   youtubeInstance: "",
@@ -17,6 +19,8 @@ let defaultCustomInstances = {
   fandomInstance: "",
   imdbInstance: "",
   geniusInstance: "",
+  ytmusicInstance: "",
+  goodreadsInstance: "",
 };
 const youtubeInstances = [
   "anontube.lvkaszus.pl",
@@ -133,6 +137,32 @@ const geniusInstances = [
   "dumb.lunar.icu",
   "dumb.esmailelbob.xyz",
 ];
+const ytmusicInstances = [
+  "beatbump.io",
+  "bb.vern.cc",
+  "bb.ggtyler.dev",
+  "hyperpipe.surge.sh",
+  "hyperpipe.esmailelbob.xyz",
+  "listen.whatever.social",
+  "music.adminforge.de",
+  "music.pfcd.me",
+  "listen.whateveritworks.org",
+  "hyperpipe.frontendfriendly.xyz",
+  "hyperpipe.drgns.space",
+  "hyperpipe.projectsegfau.lt",
+  "hp.ggtyler.dev",
+  "hyperpipe.lunar.icu",
+];
+const goodreadsInstances = [
+  "biblioreads.eu.org",
+  "biblioreads.vercel.app",
+  "biblioreads.mooo.com",
+  "bl.vern.cc",
+  "biblioreads.lunar.icu",
+  "read.whateveritworks.org",
+  "biblioreads.privacyfucking.rocks",
+  "read.seitan-ayoub.lol",
+];
 function eventualUpdateRules() {
   chrome.storage.sync.get(
     ["redirectServices", "customInstances"],
@@ -170,6 +200,10 @@ function updateRules(parameterRedirectServices, customInstances) {
     customInstances.imdbInstance || getRandomInstance(imdbInstances);
   const randGeniusInstance =
     customInstances.geniusInstance || getRandomInstance(geniusInstances);
+  const randytmusicInstance =
+    customInstances.ytmusicInstance || getRandomInstance(ytmusicInstances);
+  const randgoodreadsInstance =
+    customInstances.goodreadsInstance || getRandomInstance(goodreadsInstances);
 
   function createRedirectRule(id, filter, instance) {
     return {
@@ -233,8 +267,31 @@ function updateRules(parameterRedirectServices, customInstances) {
   if (parameterRedirectServices.genius) {
     redirectRules.push(createRedirectRule(9, "genius.com", randGeniusInstance));
   }
+  if (parameterRedirectServices.ytmusic) {
+    redirectRules.push({
+      id: 10,
+      priority: 2,
+      condition: {
+        urlFilter: `||music.youtube.com`,
+        resourceTypes: ["main_frame"],
+        excludedInitiatorDomains: [randytmusicInstance],
+      },
+      action: {
+        type: "redirect",
+        redirect: {
+          transform: { scheme: "https", host: randytmusicInstance },
+        },
+      },
+    }
+    );
+  }
+  if (parameterRedirectServices.goodreads) {
+    redirectRules.push(
+      createRedirectRule(11, "goodreads.com", randgoodreadsInstance)
+    );
+  }
   chrome.declarativeNetRequest.updateDynamicRules({
-    removeRuleIds: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    removeRuleIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
     addRules: redirectRules,
   });
   console.log("Updated Rules:");
