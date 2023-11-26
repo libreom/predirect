@@ -227,27 +227,55 @@ function updateRules(parameterRedirectServices, customInstances) {
     redirectRules.push(
       createRedirectRule(1, "youtube.com", randYoutubeInstance)
     );
+    redirectRules.push({
+      id: 2,
+      priority: 1,
+      condition: {
+        urlFilter: "||youtube.com/embed",
+        resourceTypes: ["sub_frame"],
+      },
+      action: {
+        type: "redirect",
+        redirect: {
+          transform: { scheme: "https", host: randYoutubeInstance },
+        },
+      },
+    });
+    redirectRules.push({
+      id: 3,
+      priority: 1,
+      condition: {
+        urlFilter: "||youtube-nocookie.com/embed",
+        resourceTypes: ["sub_frame"],
+      },
+      action: {
+        type: "redirect",
+        redirect: {
+          transform: { scheme: "https", host: randYoutubeInstance },
+        },
+      },
+    });
   }
 
   if (parameterRedirectServices.twitter) {
     redirectRules.push(
-      createRedirectRule(2, "twitter.com", randTwitterInstance)
+      createRedirectRule(4, "twitter.com", randTwitterInstance)
     );
-    redirectRules.push(createRedirectRule(3, "x.com", randTwitterInstance));
+    redirectRules.push(createRedirectRule(5, "x.com", randTwitterInstance));
   }
 
   if (parameterRedirectServices.medium) {
-    redirectRules.push(createRedirectRule(4, "medium.com", randMediumInstance));
+    redirectRules.push(createRedirectRule(6, "medium.com", randMediumInstance));
   }
   if (parameterRedirectServices.tiktok) {
-    redirectRules.push(createRedirectRule(5, "tiktok.com", randTiktokInstance));
+    redirectRules.push(createRedirectRule(7, "tiktok.com", randTiktokInstance));
   }
   if (parameterRedirectServices.quora) {
-    redirectRules.push(createRedirectRule(6, "quora.com", randQuoraInstance));
+    redirectRules.push(createRedirectRule(8, "quora.com", randQuoraInstance));
   }
   if (parameterRedirectServices.fandom) {
     redirectRules.push({
-      id: 7,
+      id: 9,
       priority: 2,
       condition: {
         regexFilter: "^https://(.*)\\.fandom\\.com/(.*)$",
@@ -262,14 +290,16 @@ function updateRules(parameterRedirectServices, customInstances) {
     });
   }
   if (parameterRedirectServices.imdb) {
-    redirectRules.push(createRedirectRule(8, "imdb.com", randImdbInstance));
+    redirectRules.push(createRedirectRule(10, "imdb.com", randImdbInstance));
   }
   if (parameterRedirectServices.genius) {
-    redirectRules.push(createRedirectRule(9, "genius.com", randGeniusInstance));
+    redirectRules.push(
+      createRedirectRule(11, "genius.com", randGeniusInstance)
+    );
   }
   if (parameterRedirectServices.ytmusic) {
     redirectRules.push({
-      id: 10,
+      id: 12,
       priority: 2,
       condition: {
         urlFilter: `||music.youtube.com`,
@@ -282,16 +312,15 @@ function updateRules(parameterRedirectServices, customInstances) {
           transform: { scheme: "https", host: randytmusicInstance },
         },
       },
-    }
-    );
+    });
   }
   if (parameterRedirectServices.goodreads) {
     redirectRules.push(
-      createRedirectRule(11, "goodreads.com", randgoodreadsInstance)
+      createRedirectRule(13, "goodreads.com", randgoodreadsInstance)
     );
   }
   chrome.declarativeNetRequest.updateDynamicRules({
-    removeRuleIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+    removeRuleIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
     addRules: redirectRules,
   });
   console.log("Updated Rules:");

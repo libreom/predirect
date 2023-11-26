@@ -19,6 +19,7 @@
   },
   "host_permissions": [
     "*://*.youtube.com/*",
+    "*://*.youtube-nocookie.com/*",
     "*://*.twitter.com/*",
     "*://*.x.com/*",
     "*://*.medium.com/*",
