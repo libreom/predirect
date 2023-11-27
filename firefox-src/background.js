@@ -164,17 +164,16 @@ const goodreadsInstances = [
   "read.seitan-ayoub.lol",
 ];
 function eventualUpdateRules() {
-  chrome.storage.sync.get(
-    ["redirectServices", "customInstances"],
-    function (savedData) {
+  browser.storage.sync
+    .get(["redirectServices", "customInstances"])
+    .then((savedData) => {
       const savedRedirectServices =
         savedData.redirectServices || defaultRedirectServices;
       const customInstances =
         savedData.customInstances || defaultCustomInstances;
       updateRules(savedRedirectServices, customInstances);
       console.log("eventually updated rules");
-    }
-  );
+    });
 }
 eventualUpdateRules();
 function getRandomInstance(instances) {
@@ -319,7 +318,7 @@ function updateRules(parameterRedirectServices, customInstances) {
       createRedirectRule(13, "goodreads.com", randgoodreadsInstance)
     );
   }
-  chrome.declarativeNetRequest.updateDynamicRules({
+  browser.declarativeNetRequest.updateDynamicRules({
     removeRuleIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
     addRules: redirectRules,
   });
@@ -331,7 +330,7 @@ function updateRules(parameterRedirectServices, customInstances) {
 
 setInterval(eventualUpdateRules, 10 * 60 * 1000);
 
-chrome.runtime.onMessage.addListener(function (message) {
+browser.runtime.onMessage.addListener((message) =>{
   if (
     message &&
     message.type === "updateOptions" &&

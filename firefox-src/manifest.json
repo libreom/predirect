@@ -15,7 +15,8 @@
     "128": "assets/icon-128.png"
   },
   "background": {
-    "service_worker": "background.js"
+    "scripts": ["background.js"]
+
   },
   "host_permissions": [
     "*://*.youtube.com/*",
@@ -29,5 +30,12 @@
     "*://*.imdb.com/*",
     "*://*.genius.com/*",
     "*://*.goodreads.com/*"
-  ]
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "holyfuck@thejews.com",
+      "strict_min_version": "89.0"
+    }
+  }
+  
 }
