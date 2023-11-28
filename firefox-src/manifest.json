@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Predirect",
   "description": "Redirect to privacy friendly alternatives",
-  "version": "0.2",
+  "version": "0.3",
   "permissions": ["declarativeNetRequest", "storage"],
   "action": {
     "default_popup": "popup/popup.html",
