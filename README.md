@@ -7,7 +7,7 @@ A manifest v3 web extension with minimal permissions that automatically redirect
 1. Download the latest zip file (and extract it) or git clone the repo
 2. Go to `chrome://extensions` and enable `Developer mode`
 3. Click `Load unpacked` , Select and open `src` folder under cloned repo or extracted folder
-### Firefox
+### Firefox/ Firefox Android
 <a href="https://addons.mozilla.org/en-US/firefox/addon/predirector/"><img src = "https://blog.mozilla.org/addons/files/2020/04/get-the-addon-fx-apr-2020.svg" alt="Get the addon firefox" width="172">
 </a>
 ## Redirects
