@@ -330,7 +330,7 @@ function updateRules(parameterRedirectServices, customInstances) {
 
 setInterval(eventualUpdateRules, 10 * 60 * 1000);
 
-browser.runtime.onMessage.addListener((message) =>{
+browser.runtime.onMessage.addListener((message) => {
   if (
     message &&
     message.type === "updateOptions" &&
@@ -340,5 +340,16 @@ browser.runtime.onMessage.addListener((message) =>{
     redirectServices = message.redirectServices;
     customInstances = message.customInstances;
     updateRules(redirectServices, customInstances);
+  }
+});
+
+//Firefox only onboarding
+browser.runtime.onInstalled.addListener((handleInstalled) => {
+  if (handleInstalled.reason == "install") {
+    //first install
+    //show onboarding page
+    browser.tabs.create({
+      url: "onboarding.html",
+    });
   }
 });

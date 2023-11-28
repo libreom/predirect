@@ -16,7 +16,6 @@
   },
   "background": {
     "scripts": ["background.js"]
-
   },
   "host_permissions": [
     "*://*.youtube.com/*",
@@ -31,11 +30,16 @@
     "*://*.genius.com/*",
     "*://*.goodreads.com/*"
   ],
+  "web_accessible_resources": [
+    {
+      "resources": ["onboarding.html"],
+      "extension_ids": []
+    }
+  ],
   "browser_specific_settings": {
     "gecko": {
       "id": "holyfuck@thejews.com",
       "strict_min_version": "89.0"
     }
   }
-  
 }
