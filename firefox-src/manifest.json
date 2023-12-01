@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Predirect",
   "description": "Redirect to privacy friendly alternatives",
-  "version": "0.4",
+  "version": "0.5",
   "permissions": ["declarativeNetRequest", "storage"],
   "action": {
     "default_popup": "popup/popup.html",
@@ -42,7 +42,7 @@
       "strict_min_version": "113.0"
     },
     "gecko_android": {
-"strict_min_version": "113.0"
-}
+      "strict_min_version": "113.0"
+    }
   }
 }
