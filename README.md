@@ -30,4 +30,4 @@ A manifest v3 web extension with minimal permissions that automatically redirect
 | [YoutTube Music](https://music.youtube.com//) | [Beatbump](https://github.com/snuffyDev/Beatbump) and [Hyperpipe](https://codeberg.org/Hyperpipe/Hyperpipe) |
 | [Goodreads](https://www.goodreads.com/)       | [BiblioReads](https://github.com/nesaku/BiblioReads)                                                        |
 | [Imgur](https://imgur.com/)                   | [Rimgo](https://codeberg.org/rimgo/rimgo)                                                                   |
-| [Pixiv](https://www.pixiv.net/)               | [Pixiv](https://codeberg.org/vnpower/pixivfe)                                                               |
+| [Pixiv](https://www.pixiv.net/)               | [Pixivfe](https://codeberg.org/vnpower/pixivfe)                                                               |
