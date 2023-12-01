@@ -11,6 +11,8 @@ const permissionsToRequest = {
     "*://*.imdb.com/*",
     "*://*.genius.com/*",
     "*://*.goodreads.com/*",
+    "*://*.imgur.com/*",
+    "*://*.pixiv.net/*",
   ],
 };
 async function requestPermissions() {
