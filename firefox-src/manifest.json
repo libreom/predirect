@@ -28,7 +28,9 @@
     "*://*.fandom.com/*",
     "*://*.imdb.com/*",
     "*://*.genius.com/*",
-    "*://*.goodreads.com/*"
+    "*://*.goodreads.com/*",
+    "*://*.imgur.com/*",
+    "*://*.pixiv.net/*"
   ],
   "web_accessible_resources": [
     {

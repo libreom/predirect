@@ -3,13 +3,18 @@
 A manifest v3 web extension with minimal permissions that automatically redirects popular sites to privacy friendly frontends
 
 ## Installation
+
 ### Chrome/Chromium based browsers
+
 1. Download the latest zip file (and extract it) or git clone the repo
 2. Go to `chrome://extensions` and enable `Developer mode`
 3. Click `Load unpacked` , Select and open `src` folder under cloned repo or extracted folder
+
 ### Firefox/ Firefox Android
+
 <a href="https://addons.mozilla.org/en-US/firefox/addon/predirector/"><img src = "https://blog.mozilla.org/addons/files/2020/04/get-the-addon-fx-apr-2020.svg" alt="Get the addon firefox" width="172">
 </a>
+
 ## Redirects
 
 | From                                          | To                                                                                                          |
@@ -24,3 +29,5 @@ A manifest v3 web extension with minimal permissions that automatically redirect
 | [Genius](https://genius.com)                  | Dumb ([GitHub](https://github.com/rramiachraf/dumb), [Codeberg](https://codeberg.org/rramiachraf/dumb))     |
 | [YoutTube Music](https://music.youtube.com//) | [Beatbump](https://github.com/snuffyDev/Beatbump) and [Hyperpipe](https://codeberg.org/Hyperpipe/Hyperpipe) |
 | [Goodreads](https://www.goodreads.com/)       | [BiblioReads](https://github.com/nesaku/BiblioReads)                                                        |
+| [Imgur](https://imgur.com/)                   | [Rimgo](https://codeberg.org/rimgo/rimgo)                                                                   |
+| [Pixiv](https://www.pixiv.net/)               | [Pixiv](https://codeberg.org/vnpower/pixivfe)                                                               |

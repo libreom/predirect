@@ -9,6 +9,8 @@ let defaultRedirectServices = {
   genius: true,
   ytmusic: true,
   goodreads: true,
+  imgur: true,
+  pixiv: true,
 };
 let defaultCustomInstances = {
   youtubeInstance: "",
@@ -21,6 +23,8 @@ let defaultCustomInstances = {
   geniusInstance: "",
   ytmusicInstance: "",
   goodreadsInstance: "",
+  imgurInstance: "",
+  pixiv: "",
 };
 const youtubeInstances = [
   "anontube.lvkaszus.pl",
@@ -163,6 +167,21 @@ const goodreadsInstances = [
   "biblioreads.privacyfucking.rocks",
   "read.seitan-ayoub.lol",
 ];
+const imgurInstances = [
+  "rimgo.pussthecat.org",
+  "rimgo.bus-hit.me",
+  "rim.odyssey346.dev",
+  "rimgo.hostux.net",
+  "rimgo.lunar.icu",
+  "rimgo.kling.gg",
+  "rimgo.projectsegfau.lt",
+  "rimgo.catsarch.com",
+];
+const pixivInstances = [
+  "pixivfe.exozy.me",
+  "pix.chaotic.ninja",
+  "art.whateveritworks.org",
+];
 function eventualUpdateRules() {
   chrome.storage.sync.get(
     ["redirectServices", "customInstances"],
@@ -204,6 +223,10 @@ function updateRules(parameterRedirectServices, customInstances) {
     customInstances.ytmusicInstance || getRandomInstance(ytmusicInstances);
   const randgoodreadsInstance =
     customInstances.goodreadsInstance || getRandomInstance(goodreadsInstances);
+  const randimgurInstance =
+    customInstances.imgurInstance || getRandomInstance(imgurInstances);
+  const randpixivInstance =
+    customInstances.pixivInstance || getRandomInstance(pixivInstances);
 
   function createRedirectRule(id, filter, instance) {
     return {
@@ -319,8 +342,45 @@ function updateRules(parameterRedirectServices, customInstances) {
       createRedirectRule(13, "goodreads.com", randgoodreadsInstance)
     );
   }
+  if (parameterRedirectServices.imgur) {
+    redirectRules.push(createRedirectRule(14, "imgur.com", randimgurInstance));
+    redirectRules.push({
+      id: 15,
+      priority: 2,
+      condition: {
+        regexFilter: "^https?://i\\.stack\\.imgur\\.com(/.*)?$",
+        resourceTypes: ["main_frame"],
+      },
+      action: {
+        type: "redirect",
+        redirect: {
+          regexSubstitution: `https://${randimgurInstance}/stack\\1
+          `,
+        },
+      },
+    });
+  }
+  if (parameterRedirectServices.pixiv) {
+    redirectRules.push(createRedirectRule(16, "pixiv.net", randpixivInstance));
+    redirectRules.push({
+      id: 17,
+      priority: 2,
+      condition: {
+        regexFilter: "^https?://www?.pixiv\\.net/en(/.*)?$",
+        resourceTypes: ["main_frame"],
+      },
+      action: {
+        type: "redirect",
+        redirect: {
+          regexSubstitution: `https://${randpixivInstance}\\1
+          `,
+        },
+      },
+    });
+  }
+
   chrome.declarativeNetRequest.updateDynamicRules({
-    removeRuleIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+    removeRuleIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
     addRules: redirectRules,
   });
   console.log("Updated Rules:");
