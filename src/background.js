@@ -11,6 +11,7 @@ let defaultRedirectServices = {
   goodreads: true,
   imgur: true,
   pixiv: true,
+  ud: true,
 };
 let defaultCustomInstances = {
   youtubeInstance: "",
@@ -25,6 +26,7 @@ let defaultCustomInstances = {
   goodreadsInstance: "",
   imgurInstance: "",
   pixiv: "",
+  udInstance: "",
 };
 const youtubeInstances = [
   "anontube.lvkaszus.pl",
@@ -182,6 +184,7 @@ const pixivInstances = [
   "pix.chaotic.ninja",
   "art.whateveritworks.org",
 ];
+const udInstances = ["rd.vern.cc", "ruraldictionary.esmailelbob.xyz"];
 function eventualUpdateRules() {
   chrome.storage.sync.get(
     ["redirectServices", "customInstances"],
@@ -227,6 +230,8 @@ function updateRules(parameterRedirectServices, customInstances) {
     customInstances.imgurInstance || getRandomInstance(imgurInstances);
   const randpixivInstance =
     customInstances.pixivInstance || getRandomInstance(pixivInstances);
+  const randUDInstance =
+    customInstances.udInstance || getRandomInstance(udInstances);
 
   function createRedirectRule(id, filter, instance) {
     return {
@@ -378,9 +383,16 @@ function updateRules(parameterRedirectServices, customInstances) {
       },
     });
   }
+  if (parameterRedirectServices.ud) {
+    redirectRules.push(
+      createRedirectRule(18, "urbandictionary.com", randUDInstance)
+    );
+  }
 
   chrome.declarativeNetRequest.updateDynamicRules({
-    removeRuleIds: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
+    removeRuleIds: [
+      1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,
+    ],
     addRules: redirectRules,
   });
   console.log("Updated Rules:");

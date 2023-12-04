@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Predirect",
   "description": "Redirect to privacy friendly alternatives",
-  "version": "0.6",
+  "version": "0.7",
   "permissions": ["declarativeNetRequest", "storage"],
   "action": {
     "default_popup": "popup/popup.html",
@@ -30,6 +30,7 @@
     "*://*.genius.com/*",
     "*://*.goodreads.com/*",
     "*://*.imgur.com/*",
-    "*://*.pixiv.net/*"
+    "*://*.pixiv.net/*",
+    "*://*.urbandictionary.com/*"
   ]
 }

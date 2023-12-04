@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     goodreads: document.getElementById("goodreadsInstance"),
     imgur: document.getElementById("imgurInstance"),
     pixiv: document.getElementById("pixivInstance"),
+    ud: document.getElementById("udInstance"),
   };
 
   // Load saved preferences from storage
@@ -33,6 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
         goodreads: true,
         imgur: true,
         pixiv: true,
+        ud: true,
       };
       let defaultCustomInstances = {
         youtubeInstance: "",
@@ -47,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
         goodreadsInstance: "",
         imgurInstance: "",
         pixivInstance: "",
+        udInstance: "",
       };
       const savedRedirectServices =
         data.redirectServices || defaultRedirectServices;
@@ -78,6 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
       goodreads: document.getElementById("goodreads").checked,
       imgur: document.getElementById("imgur").checked,
       pixiv: document.getElementById("pixiv").checked,
+      ud: document.getElementById("ud").checked,
     };
     const customInstances = {
       youtubeInstance: instances.youtube.value || "",
@@ -92,6 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
       goodreadsInstance: instances.goodreads.value || "",
       imgurInstance: instances.imgur.value || "",
       pixivInstance: instances.pixiv.value || "",
+      udInstance: instances.ud.value || "",
     };
 
     // Save preferences to storage
