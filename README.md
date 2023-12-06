@@ -10,7 +10,7 @@ A manifest v3 web extension with minimal permissions that automatically redirect
 2. Go to `chrome://extensions` and enable `Developer mode`
 3. Click `Load unpacked` , Select and open `src` folder under cloned repo or extracted folder
 
-<a href="https://chromewebstore.google.com/detail/predirect/aiillidfcgfckfhkpiakhkkpbkknagnp"><img src = "assets/chrome.jpg" alt="Available in the Chrome Web Store" width="172">
+<a href="https://chromewebstore.google.com/detail/predirect/aiillidfcgfckfhkpiakhkkpbkknagnp"><img src = "assets/chrome.png" alt="Available in the Chrome Web Store" width="172">
 </a>
 
 ### Firefox/ Firefox Android
