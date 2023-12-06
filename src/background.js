@@ -401,8 +401,24 @@ function updateRules(parameterRedirectServices, customInstances) {
   console.log(customInstances);
 }
 
-setInterval(eventualUpdateRules, 10 * 60 * 1000);
+async function checkAlarmState() {
+  const alarm = await chrome.alarms.get("updateRulesAlarm");
 
+  if (!alarm) {
+    await chrome.alarms.create("updateRulesAlarm", {
+      delayInMinutes: 3,
+      periodInMinutes: 3,
+    });
+  }
+}
+
+checkAlarmState();
+chrome.alarms.onAlarm.addListener((alarm) => {
+  if (alarm && alarm.name === "updateRulesAlarm") {
+    eventualUpdateRules();
+    console.log("Alarm fired");
+  }
+});
 chrome.runtime.onMessage.addListener((message) => {
   if (
     message &&
