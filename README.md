@@ -10,9 +10,20 @@ A manifest v3 web extension with minimal permissions that automatically redirect
 2. Go to `chrome://extensions` and enable `Developer mode`
 3. Click `Load unpacked` , Select and open `src` folder under cloned repo or extracted folder
 
+<a href="https://chromewebstore.google.com/detail/predirect/aiillidfcgfckfhkpiakhkkpbkknagnp"><img src = "assets/chrome.svg" alt="Available in the Chrome Web Store" width="172">
+</a>
+
 ### Firefox/ Firefox Android
 
-<a href="https://addons.mozilla.org/en-US/firefox/addon/predirector/"><img src = "https://blog.mozilla.org/addons/files/2020/04/get-the-addon-fx-apr-2020.svg" alt="Get the addon firefox" width="172">
+<a href="https://addons.mozilla.org/en-US/firefox/addon/predirector/"><img src = "assets/mozilla.svg" alt="Get the addon firefox" width="172">
+</a>
+
+### Microsoft Edge
+<a href="https://microsoftedge.microsoft.com/addons/detail/predirect/meehajiemfkahmhbemddchfhafmjcnij"><img src = "assets/edge.svg" alt="Get the addon Microsoft Edge" width="172">
+</a>
+
+### Opera
+<a href="https://addons.opera.com/en/extensions/details/predirect/"><img src = "assets/opera.jpg" alt="Get it from Opera add-ons" width="172">
 </a>
 
 ## Redirects
