@@ -6,10 +6,6 @@ A manifest v3 web extension with minimal permissions that automatically redirect
 
 ### Chrome/Chromium based browsers
 
-1. Download the latest zip file (and extract it) or git clone the repo
-2. Go to `chrome://extensions` and enable `Developer mode`
-3. Click `Load unpacked` , Select and open `src` folder under cloned repo or extracted folder
-
 <a href="https://chromewebstore.google.com/detail/predirect/aiillidfcgfckfhkpiakhkkpbkknagnp"><img src = "assets/chrome.png" alt="Available in the Chrome Web Store" width="172">
 </a>
 
@@ -20,10 +16,6 @@ A manifest v3 web extension with minimal permissions that automatically redirect
 
 ### Microsoft Edge
 <a href="https://microsoftedge.microsoft.com/addons/detail/predirect/meehajiemfkahmhbemddchfhafmjcnij"><img src = "assets/edge.svg" alt="Get the addon Microsoft Edge" width="172">
-</a>
-
-### Opera
-<a href="https://addons.opera.com/en/extensions/details/predirect/"><img src = "assets/opera.jpg" alt="Get it from Opera add-ons" width="172">
 </a>
 
 ## Redirects
