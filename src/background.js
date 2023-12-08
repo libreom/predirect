@@ -12,6 +12,13 @@ let defaultRedirectServices = {
   imgur: true,
   pixiv: true,
   ud: true,
+  ultimateGuitar: true,
+  twitch: true,
+  instagram: true,
+  wolframAlpha: true,
+  bandcamp: true,
+  tumblr: true,
+  soundcloud: true,
 };
 let defaultCustomInstances = {
   youtubeInstance: "",
@@ -27,6 +34,13 @@ let defaultCustomInstances = {
   imgurInstance: "",
   pixiv: "",
   udInstance: "",
+  ultimateGuitarInstance: "",
+  twitchInstance: "",
+  instagramInstance: "",
+  wolframAlphaInstance: "",
+  bandcampInstance: "",
+  tumblrInstance: "",
+  soundcloudInstance: "",
 };
 const youtubeInstances = [
   "anontube.lvkaszus.pl",
@@ -92,6 +106,11 @@ const mediumInstances = [
   "scribe.bus-hit.me",
   "sc.vern.cc",
   "m.opnxng.com",
+  "libmedium.batsense.net",
+  "md.vern.cc",
+  "medium.hostux.net",
+  "read.sudovanilla.com",
+  "medium.rip",
 ];
 const tiktokInstances = [
   "proxitok.pabloferreiro.es",
@@ -184,6 +203,64 @@ const pixivInstances = [
   "pix.chaotic.ninja",
   "art.whateveritworks.org",
 ];
+const ultimateGuitarInstances = ["freetar.androidloves.me"];
+const twitchInstances = [
+  "safetwitch.drgns.space",
+  "safetwitch.projectsegfau.lt",
+  "stream.whateveritworks.org",
+  "safetwitch.datura.network",
+  "ttv.vern.cc",
+  "safetwitch.frontendfriendly.xyz",
+  "ttv.femboy.band",
+  "twitch.seitan-ayoub.lol",
+  "st.ggtyler.dev",
+  "safetwitch.lunar.icu",
+  "twitch.sudovanilla.com",
+];
+const instagramInstances = [
+  "proxigram.privacyfrontends.repl.co",
+  "proxigram.protokolla.fi",
+  "proxigram.kyun.li",
+  "proxigram.drgns.space",
+  "ig.opnxng.com",
+];
+const wolframAlphaInstances = [
+  "wolfree.chickenkiller.com",
+  "wolfree.crabdance.com",
+  "wolfree.gitlab.io",
+  "wolfree.glitch.me",
+  "wolfree.ignorelist.com",
+  "wolfree.jumpingcrab.com",
+  "wolfree.my.to",
+  "wolfree.netlify.app",
+  "wolfree.on.fleek.co",
+  "wolfree.onrender.com",
+  "wolfree.pages.dev",
+  "wolfree.privatedns.org",
+  "wolfree.strangled.net",
+  "wolfree.twilightparadox.com",
+  "wolfree.uk.to",
+  "wolfree.us.to",
+  "wolfreealpha.chickenkiller.com",
+  "wolfreealpha.crabdance.com",
+  "wolfreealpha.gitlab.io",
+  "wolfreealpha.glitch.me",
+  "wolfreealpha.ignorelist.com",
+  "wolfreealpha.jumpingcrab.com",
+  "wolfreealpha.my.to",
+  "wolfreealpha.netlify.app",
+  "wolfreealpha.on.fleek.co",
+  "wolfreealpha.onrender.com",
+  "wolfreealpha.pages.dev",
+  "wolfreealpha.privatedns.org",
+  "wolfreealpha.strangled.net",
+  "wolfreealpha.twilightparadox.com",
+  "wolfreealpha.uk.to",
+  "wolfreealpha.us.to",
+];
+const bandcampInstances = ["tent.sny.sh", "tent.bloat.cat", "tn.vern.cc"];
+const tumblrInstances = ["pb.bloat.cat"];
+const soundcloudInstances = ["tubo.migalmoreno.com"];
 const udInstances = ["rd.vern.cc", "ruraldictionary.esmailelbob.xyz"];
 function eventualUpdateRules() {
   chrome.storage.sync.get(
@@ -232,6 +309,23 @@ function updateRules(parameterRedirectServices, customInstances) {
     customInstances.pixivInstance || getRandomInstance(pixivInstances);
   const randUDInstance =
     customInstances.udInstance || getRandomInstance(udInstances);
+  const randUltimateGuitarInstance =
+    customInstances.ultimateGuitarInstance ||
+    getRandomInstance(ultimateGuitarInstances);
+  const randTwitchInstance =
+    customInstances.twitchInstance || getRandomInstance(twitchInstances);
+  const randInstagramInstance =
+    customInstances.instagramInstance || getRandomInstance(instagramInstances);
+  const randWolframAlphaInstance =
+    customInstances.wolframAlphaInstance ||
+    getRandomInstance(wolframAlphaInstances);
+  const randBandcampInstance =
+    customInstances.bandcampInstance || getRandomInstance(bandcampInstances);
+  const randTumblrInstance =
+    customInstances.tumblrInstance || getRandomInstance(tumblrInstances);
+  const randSoundcloudInstance =
+    customInstances.soundcloudInstance ||
+    getRandomInstance(soundcloudInstances);
 
   function createRedirectRule(id, filter, instance) {
     return {
@@ -388,10 +482,143 @@ function updateRules(parameterRedirectServices, customInstances) {
       createRedirectRule(18, "urbandictionary.com", randUDInstance)
     );
   }
+  if (parameterRedirectServices.ultimateGuitar) {
+    redirectRules.push(
+      createRedirectRule(19, "ultimate-guitar.com", randUltimateGuitarInstance)
+    );
+  }
+  if (parameterRedirectServices.twitch) {
+    redirectRules.push(createRedirectRule(20, "twitch.tv", randTwitchInstance));
+  }
+  if (parameterRedirectServices.instagram) {
+    redirectRules.push(
+      createRedirectRule(21, "instagram.com", randInstagramInstance)
+    );
+  }
+  if (parameterRedirectServices.wolframAlpha) {
+    redirectRules.push(
+      createRedirectRule(22, "wolframalpha.com", randWolframAlphaInstance)
+    );
+  }
+  if (parameterRedirectServices.bandcamp) {
+    redirectRules.push(
+      createRedirectRule(23, "bandcamp.com", randBandcampInstance)
+    );
+    redirectRules.push({
+      id: 24,
+      priority: 2,
+      condition: {
+        regexFilter: "^https://(.*)\\.bandcamp\\.com/$",
+        resourceTypes: ["main_frame"],
+      },
+      action: {
+        type: "redirect",
+        redirect: {
+          regexSubstitution: `https://${randBandcampInstance}/artist.php?name=\\1`,
+        },
+      },
+    });
+    redirectRules.push({
+      id: 25,
+      priority: 3,
+      condition: {
+        regexFilter: "^https://(.*)\\.bandcamp\\.com/(track|album)/(.*)$",
+        resourceTypes: ["main_frame"],
+      },
+      action: {
+        type: "redirect",
+        redirect: {
+          regexSubstitution: `https://${randBandcampInstance}/release.php?artist=\\1&type=\\2&name=\\3`,
+        },
+      },
+    });
+    redirectRules.push({
+      id: 26,
+      priority: 2,
+      condition: {
+        regexFilter: "^https://bandcamp\\.com/search\\?q=(.*)$",
+        resourceTypes: ["main_frame"],
+      },
+      action: {
+        type: "redirect",
+        redirect: {
+          regexSubstitution: `https://${randBandcampInstance}/search.php?query=\\1`,
+        },
+      },
+    });
+  }
+  if (parameterRedirectServices.tumblr) {
+    redirectRules.push(
+      createRedirectRule(27, "tumblr.com", randTumblrInstance)
+    );
+    redirectRules.push({
+      id: 28,
+      priority: 2,
+      condition: {
+        regexFilter: "^https://(.*)\\.tumblr\\.com/(.*)$",
+        resourceTypes: ["main_frame"],
+      },
+      action: {
+        type: "redirect",
+        redirect: {
+          regexSubstitution: `https://${randTumblrInstance}/\\1/\\2`,
+        },
+      },
+    });
+    redirectRules.push({
+      id: 29,
+      priority: 3,
+      condition: {
+        regexFilter: "^https://(.*)\\.tumblr\\.com/post/(.*)$",
+        resourceTypes: ["main_frame"],
+      },
+      action: {
+        type: "redirect",
+        redirect: {
+          regexSubstitution: `https://${randTumblrInstance}/\\1/\\2`,
+        },
+      },
+    });
 
+    redirectRules.push({
+      id: 30,
+      priority: 4,
+      condition: {
+        urlFilter: `||www.tumblr.com`,
+        resourceTypes: ["main_frame"],
+        excludedInitiatorDomains: [randTumblrInstance],
+      },
+      action: {
+        type: "redirect",
+        redirect: {
+          transform: { scheme: "https", host: randTumblrInstance },
+        },
+      },
+    });
+  }
+  if (parameterRedirectServices.soundcloud) {
+    redirectRules.push(
+      createRedirectRule(31, "soundcloud.com", randSoundcloudInstance)
+    );
+    redirectRules.push({
+      id: 32,
+      priority: 2,
+      condition: {
+        regexFilter: "^(.*)$",
+        resourceTypes: ["main_frame"],
+      },
+      action: {
+        type: "redirect",
+        redirect: {
+          regexSubstitution: `https://${randSoundcloudInstance}/stream?url=\\1`,
+        },
+      },
+    });
+  }
   chrome.declarativeNetRequest.updateDynamicRules({
     removeRuleIds: [
-      1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,
+      1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
+      22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
     ],
     addRules: redirectRules,
   });

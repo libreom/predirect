@@ -3,7 +3,7 @@
   "name": "Predirect",
   "description": "Redirect to privacy friendly alternatives",
   "version": "0.8",
-  "permissions": ["declarativeNetRequest", "storage","alarms"],
+  "permissions": ["declarativeNetRequest", "storage", "alarms"],
   "action": {
     "default_popup": "popup/popup.html",
     "default_icon": "assets/icon.png"
@@ -31,6 +31,13 @@
     "*://*.goodreads.com/*",
     "*://*.imgur.com/*",
     "*://*.pixiv.net/*",
-    "*://*.urbandictionary.com/*"
+    "*://*.urbandictionary.com/*",
+    "*://*.ultimate-guitar.com/*",
+    "*://*.twitch.tv/*",
+    "*://*.instagram.com/*",
+    "*://*.wolframalpha.com/*",
+    "*://*.bandcamp.com/*",
+    "*://*.tumblr.com/*",
+    "*://*.soundcloud.com/*"
   ]
 }
