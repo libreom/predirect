@@ -14,6 +14,13 @@ const permissionsToRequest = {
     "*://*.imgur.com/*",
     "*://*.pixiv.net/*",
     "*://*.urbandictionary.com/*",
+    "*://*.ultimate-guitar.com/*",
+    "*://*.twitch.tv/*",
+    "*://*.instagram.com/*",
+    "*://*.wolframalpha.com/*",
+    "*://*.bandcamp.com/*",
+    "*://*.tumblr.com/*",
+    "*://*.soundcloud.com/*",
   ],
 };
 async function requestPermissions() {

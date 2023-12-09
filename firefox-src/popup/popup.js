@@ -15,6 +15,13 @@ document.addEventListener("DOMContentLoaded", function () {
     imgur: document.getElementById("imgurInstance"),
     pixiv: document.getElementById("pixivInstance"),
     ud: document.getElementById("udInstance"),
+    ultimateGuitar: document.getElementById("ultimateGuitarInstance"),
+    twitch: document.getElementById("twitchInstance"),
+    instagram: document.getElementById("instagramInstance"),
+    wolframAlpha: document.getElementById("wolframAlphaInstance"),
+    bandcamp: document.getElementById("bandcampInstance"),
+    tumblr: document.getElementById("tumblrInstance"),
+    soundcloud: document.getElementById("soundcloudInstance"),
   };
 
   // Load saved preferences from storage
@@ -35,6 +42,13 @@ document.addEventListener("DOMContentLoaded", function () {
         imgur: true,
         pixiv: true,
         ud: true,
+        ultimateGuitar: true,
+        twitch: false,
+        instagram: false,
+        wolframAlpha: false,
+        bandcamp: true,
+        tumblr: true,
+        soundcloud: true,
       };
       let defaultCustomInstances = {
         youtubeInstance: "",
@@ -50,6 +64,13 @@ document.addEventListener("DOMContentLoaded", function () {
         imgurInstance: "",
         pixivInstance: "",
         udInstance: "",
+        ultimateGuitarInstance: "",
+        twitchInstance: "",
+        instagramInstance: "",
+        wolframAlphaInstance: "",
+        bandcampInstance: "",
+        tumblrInstance: "",
+        soundcloudInstance: "",
       };
       const savedRedirectServices =
         data.redirectServices || defaultRedirectServices;
@@ -82,6 +103,13 @@ document.addEventListener("DOMContentLoaded", function () {
       imgur: document.getElementById("imgur").checked,
       pixiv: document.getElementById("pixiv").checked,
       ud: document.getElementById("ud").checked,
+      ultimateGuitar: document.getElementById("ultimateGuitar").checked,
+      twitch: document.getElementById("twitch").checked,
+      instagram: document.getElementById("instagram").checked,
+      wolframAlpha: document.getElementById("wolframAlpha").checked,
+      bandcamp: document.getElementById("bandcamp").checked,
+      tumblr: document.getElementById("tumblr").checked,
+      soundcloud: document.getElementById("soundcloud").checked,
     };
     const customInstances = {
       youtubeInstance: instances.youtube.value || "",
@@ -97,6 +125,13 @@ document.addEventListener("DOMContentLoaded", function () {
       imgurInstance: instances.imgur.value || "",
       pixivInstance: instances.pixiv.value || "",
       udInstance: instances.ud.value || "",
+      ultimateGuitarInstance: instances.ultimateGuitar.value || "",
+      twitchInstance: instances.twitch.value || "",
+      instagramInstance: instances.instagram.value || "",
+      wolframAlphaInstance: instances.wolframAlpha.value || "",
+      bandcampInstance: instances.bandcamp.value || "",
+      tumblrInstance: instances.tumblr.value || "",
+      soundcloudInstance: instances.soundcloud.value || "",
     };
 
     // Save preferences to storage

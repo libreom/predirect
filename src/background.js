@@ -13,9 +13,9 @@ let defaultRedirectServices = {
   pixiv: true,
   ud: true,
   ultimateGuitar: true,
-  twitch: true,
-  instagram: true,
-  wolframAlpha: true,
+  twitch: false,
+  instagram: false,
+  wolframAlpha: false,
   bandcamp: true,
   tumblr: true,
   soundcloud: true,
@@ -402,6 +402,7 @@ function updateRules(parameterRedirectServices, customInstances) {
       condition: {
         regexFilter: "^https://(.*)\\.fandom\\.com/(.*)$",
         resourceTypes: ["main_frame"],
+        excludedRequestDomains: ["www.fandom.com"],
       },
       action: {
         type: "redirect",
@@ -557,6 +558,7 @@ function updateRules(parameterRedirectServices, customInstances) {
       condition: {
         regexFilter: "^https://(.*)\\.tumblr\\.com/(.*)$",
         resourceTypes: ["main_frame"],
+        excludedRequestDomains: ["www.tumblr.com"],
       },
       action: {
         type: "redirect",
@@ -571,6 +573,7 @@ function updateRules(parameterRedirectServices, customInstances) {
       condition: {
         regexFilter: "^https://(.*)\\.tumblr\\.com/post/(.*)$",
         resourceTypes: ["main_frame"],
+        excludedRequestDomains: ["www.tumblr.com"],
       },
       action: {
         type: "redirect",
@@ -579,38 +582,34 @@ function updateRules(parameterRedirectServices, customInstances) {
         },
       },
     });
-
-    redirectRules.push({
-      id: 30,
-      priority: 4,
-      condition: {
-        urlFilter: `||www.tumblr.com`,
-        resourceTypes: ["main_frame"],
-        excludedInitiatorDomains: [randTumblrInstance],
-      },
-      action: {
-        type: "redirect",
-        redirect: {
-          transform: { scheme: "https", host: randTumblrInstance },
-        },
-      },
-    });
   }
   if (parameterRedirectServices.soundcloud) {
-    redirectRules.push(
-      createRedirectRule(31, "soundcloud.com", randSoundcloudInstance)
-    );
     redirectRules.push({
-      id: 32,
+      id: 30,
       priority: 2,
+      action: {
+        type: "redirect",
+        redirect: {
+          url: `https://${randSoundcloudInstance}/kiosk?serviceId=1`,
+        },
+      },
       condition: {
-        regexFilter: "^(.*)$",
+        urlFilter: "||soundcloud.com/|",
+        resourceTypes: ["main_frame"],
+        excludedInitiatorDomains: [randSoundcloudInstance],
+      },
+    });
+    redirectRules.push({
+      id: 31,
+      priority: 1,
+      condition: {
+        regexFilter: "^https://soundcloud\\.com/(.*)$",
         resourceTypes: ["main_frame"],
       },
       action: {
         type: "redirect",
         redirect: {
-          regexSubstitution: `https://${randSoundcloudInstance}/stream?url=\\1`,
+          regexSubstitution: `https://${randSoundcloudInstance}/stream?url=https://soundcloud.com/\\1`,
         },
       },
     });

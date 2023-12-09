@@ -31,7 +31,14 @@
     "*://*.goodreads.com/*",
     "*://*.imgur.com/*",
     "*://*.pixiv.net/*",
-    "*://*.urbandictionary.com/*"
+    "*://*.urbandictionary.com/*",
+    "*://*.ultimate-guitar.com/*",
+    "*://*.twitch.tv/*",
+    "*://*.instagram.com/*",
+    "*://*.wolframalpha.com/*",
+    "*://*.bandcamp.com/*",
+    "*://*.tumblr.com/*",
+    "*://*.soundcloud.com/*"
   ],
   "web_accessible_resources": [
     {
