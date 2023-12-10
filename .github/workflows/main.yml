@@ -2,30 +2,27 @@ name: Publish Extension
 
 on:
   workflow_dispatch:
-  
+
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
-        
+        uses: actions/checkout@v4
+
       - name: Zip Chrome extension
-        run: zip -r chrome.zip src -x '*.git*'  
-        
+        run: zip -r chrome.zip src
+
       - name: Zip Firefox extension
-        run: zip -r firefox.xpi firefox-src -x '*.git*'  
-        
-      - name: Zip Edge extension 
-        run: zip -r edge.zip src -x '*.git*'  
-        
+        run: zip -r firefox.xpi firefox-src
+
       - name: Publish to stores
         uses: PlasmoHQ/bpp@v3
         with:
           keys: ${{ secrets.EXTENSION_KEYS }}
-          chrome-file: chrome.zip   
+          chrome-file: chrome.zip
           firefox-file: firefox.xpi
-          edge-file: edge.zip
+          edge-file: chrome.zip
           edge-notes: "Add redirection for new sites"
           version-file: "src/manifest.json"
           verbose: true
