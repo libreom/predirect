@@ -1,4 +1,4 @@
-# predirect
+# Predirect
 
 A manifest v3 web extension with minimal permissions that automatically redirects popular sites to privacy friendly frontends
 
