@@ -1,0 +1,132 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/*----------------------------------------------------------------------------------------------------*/
+/* roboto-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./roboto/roboto-v30-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* roboto-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: url('./roboto/roboto-v30-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/*----------------------------------------------------------------------------------------------------*/
+:root {
+  --font-size: 1rem;
+  --line-height: 2;
+  --list-line-height: 2;
+  --text-color: #262626;
+  --background-color: #FFFFFF;
+  --primary-color: #4385BE;
+  --input-border-color: #EEE;
+  --input-placeholder-color: #AAA;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+  --text-color: #D1D1D1;
+  --background-color: #0E0E0F;
+  --input-border-color: #222;
+  --input-placeholder-color: #444;
+}
+}
+/*----------------------------------------------------------------------------------------------------*/
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  word-break: break-word;
+  
+  font-family: "Roboto";
+  color: var(--text-color);
+  font-size: var(--font-size);
+  background: var(--background-color);
+  line-height: var(--line-height);
+  -webkit-tap-highlight-color: transparent;
+}
+
+input:focus, select:focus, textarea:focus, button:focus {
+  outline: none;
+}
+/*----------------------------------------------------------------------------------------------------*/
+body {margin: 0.5rem;}
+/*----------------------------------------------------------------------------------------------------*/
+h2 {
+  font-size: 150%;
+  font-weight: 900;
+  margin-bottom: calc(var(--font-size) * var(--line-height) * 0.5);
+}
+/*----------------------------------------------------------------------------------------------------*/
+label {
+  line-height: var(--list-line-height);
+}
+input[type="checkbox"] {
+  margin-right: calc(var(--font-size) * 0.25);
+  accent-color: var(--primary-color);
+}
+input[type=text] {
+  font-size: 95%;
+  border: 1px solid var(--input-border-color);
+  border-radius: 4px;
+  padding: 1px 3px;
+  color: var(--primary-color);
+  background-color: var(--background-color);
+}
+input[type=text]::placeholder {
+  color: var(--input-placeholder-color);
+}

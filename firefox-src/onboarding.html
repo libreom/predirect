@@ -5,46 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="dark light" />
     <title>Addon Onboarding</title>
+    <link rel="stylesheet" href="./assets/onboarding.css">
   </head>
   <body>
-    <h1>Permissions needed</h1>
-    <p>
-      Welcome to our addon! To provide you with the functionality, we need some
-      permissions.
-    </p>
-    <button id="request">Grant Permissions</button>
-    <p id="permissionStatus">Permissions status will be displayed here.</p>
-    <p>
-      Permissions for the following sites are required for redirecting them to
-      alternative frontends
-    </p>
-    <ul>
-      <li><a href="https://youtube.com/">youtube.com</a></li>
-      <li><a href="https://youtube-nocookie.com/">youtube-nocookie.com</a></li>
-      <li><a href="https://twitter.com/">twitter.com</a></li>
-      <li><a href="https://x.com/">x.com</a></li>
-      <li><a href="https://medium.com/">medium.com</a></li>
-      <li><a href="https://tiktok.com/">tiktok.com</a></li>
-      <li><a href="https://quora.com/">quora.com</a></li>
-      <li><a href="https://fandom.com/">fandom.com</a></li>
-      <li><a href="https://imdb.com/">imdb.com</a></li>
-      <li><a href="https://genius.com/">genius.com</a></li>
-      <li><a href="https://goodreads.com/">goodreads.com</a></li>
-      <li><a href="https://imgur.com/">imgur.com</a></li>
-      <li><a href="https://pixiv.net/">pixiv.net</a></li>
-      <li><a href="https://urbandictionary.com/">urbandictionary.com</a></li>
-      <li><a href="https://ultimate-guitar.com/">ultimate-guitar.com</a></li>
-      <li><a href="https://twitch.tv/">twitch.tv</a></li>
-      <li><a href="https://instagram.com/">instagram.com</a></li>
-      <li><a href="https://wolframalpha.com/">wolframalpha.com</a></li>
-      <li><a href="https://bandcamp.com/">bandcamp.com</a></li>
-      <li><a href="https://tumblr.com/">tumblr.com</a></li>
-      <li><a href="https://soundcloud.com/">soundcloud.com</a></li>
-    </ul>
-    <p>
-      This page will also show up on update, if so grant permissions if not
-      already done.
-    </p>
-    <script src="onboarding.js"></script>
+    <div class="wrapper">
+      <h1>Permissions needed</h1>
+      <p>
+        Welcome to our addon! To redirect you to alternative frontends, permissions for the following sites are required. <span id="permissionStatus">Permissions status will be displayed here.</span>
+      </p>
+      <button id="request" class="request">Grant Permissions to all sites</button>
+      <ul>
+        <li><a href="https://youtube.com/">youtube.com</a></li>
+        <li><a href="https://youtube-nocookie.com/">youtube-nocookie.com</a></li>
+        <li><a href="https://twitter.com/">twitter.com</a></li>
+        <li><a href="https://x.com/">x.com</a></li>
+        <li><a href="https://medium.com/">medium.com</a></li>
+        <li><a href="https://tiktok.com/">tiktok.com</a></li>
+        <li><a href="https://quora.com/">quora.com</a></li>
+        <li><a href="https://fandom.com/">fandom.com</a></li>
+        <li><a href="https://imdb.com/">imdb.com</a></li>
+        <li><a href="https://genius.com/">genius.com</a></li>
+        <li><a href="https://goodreads.com/">goodreads.com</a></li>
+        <li><a href="https://imgur.com/">imgur.com</a></li>
+        <li><a href="https://pixiv.net/">pixiv.net</a></li>
+        <li><a href="https://urbandictionary.com/">urbandictionary.com</a></li>
+        <li><a href="https://ultimate-guitar.com/">ultimate-guitar.com</a></li>
+        <li><a href="https://twitch.tv/">twitch.tv</a></li>
+        <li><a href="https://instagram.com/">instagram.com</a></li>
+        <li><a href="https://wolframalpha.com/">wolframalpha.com</a></li>
+        <li><a href="https://bandcamp.com/">bandcamp.com</a></li>
+        <li><a href="https://tumblr.com/">tumblr.com</a></li>
+        <li><a href="https://soundcloud.com/">soundcloud.com</a></li>
+      </ul>
+      <script src="onboarding.js"></script>
+    </div>
   </body>
 </html>
