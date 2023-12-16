@@ -67,8 +67,7 @@ table {
 /*----------------------------------------------------------------------------------------------------*/
 :root {
   --font-size: 1rem;
-  --line-height: 2;
-  --list-line-height: 2;
+  --line-height: 1.35;
   --text-color: #262626;
   --background-color: #FFFFFF;
   --primary-color: #4385BE;
@@ -91,7 +90,6 @@ body {
   font-weight: 400;
   text-rendering: optimizeLegibility;
   word-break: break-word;
-  
   font-family: "Roboto";
   color: var(--text-color);
   font-size: var(--font-size);
@@ -109,18 +107,60 @@ body {margin: 0.5rem;}
 h2 {
   font-size: 150%;
   font-weight: 900;
-  margin-bottom: calc(var(--font-size) * var(--line-height) * 0.5);
+  margin-bottom: calc(var(--font-size) * var(--line-height) * 1);
 }
 /*----------------------------------------------------------------------------------------------------*/
 label {
-  line-height: var(--list-line-height);
+  line-height: var(--line-height);
+  display: flex;
+  align-items: center;
+  margin-bottom: calc(var(--font-size) * 0.5);
 }
-input[type="checkbox"] {
-  margin-right: calc(var(--font-size) * 0.25);
-  accent-color: var(--primary-color);
-}
+input[type="checkbox"]{
+  margin-right: calc(var(--font-size) * 0.5);
+  vertical-align: baseline;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 3em;
+  height: 1.5em;
+  background: #ddd;
+  border-radius: 3em;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  }
+  
+  input[type="checkbox"]:checked{
+    background: var(--primary-color);
+  }
+  
+  input[type="checkbox"]:after{
+    position: absolute;
+    content: "";
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    background: #fff;
+    -webkit-box-shadow: 0 0 .25em rgba(0,0,0,.3);
+            box-shadow: 0 0 .25em rgba(0,0,0,.3);
+    -webkit-transform: scale(.7);
+            transform: scale(.7);
+    left: 0;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+  }
+  
+  input[type="checkbox"]:checked:after{
+    left: calc(100% - 1.5em);
+  }
+/*----------------------------------------------------------------------------------------------------*/
 input[type=text] {
-  font-size: 95%;
+  margin-left: calc(var(--font-size) * 0.5);
+  margin-bottom: calc(var(--font-size) * 0.5);
+  font-size: 100%;
   border: 1px solid var(--input-border-color);
   border-radius: 4px;
   padding: 1px 3px;
