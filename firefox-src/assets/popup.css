@@ -90,7 +90,7 @@ body {
   font-weight: 400;
   text-rendering: optimizeLegibility;
   word-break: break-word;
-  font-family: "Roboto";
+  font-family: Roboto, Arial, Sans-Serif;
   color: var(--text-color);
   font-size: var(--font-size);
   background: var(--background-color);
