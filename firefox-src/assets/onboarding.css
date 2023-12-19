@@ -1,4 +1,4 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
+/* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
@@ -12,8 +12,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -24,7 +24,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
@@ -47,24 +47,6 @@ table {
 	border-spacing: 0;
 }
 /*----------------------------------------------------------------------------------------------------*/
-/* roboto-regular - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  src: url('./roboto/roboto-v30-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-
-/* roboto-700 - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  src: url('./roboto/roboto-v30-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-/*----------------------------------------------------------------------------------------------------*/
 :root {
   --font-size: 1.25rem;
   --line-height: 1.35;
@@ -73,12 +55,15 @@ table {
   --button-text-color: #FFFFFF;
   --background-color: #FFFFFF;
   --primary-color: #4385BE;
+  --hover-color: #205EA6;
+  --gray-color: #AAA;
 }
 @media (prefers-color-scheme: dark) {
   :root {
   --text-color: #D1D1D1;
   --button-text-color: #FFF;
   --background-color: #0E0E0F;
+  --gray-color: #333;
 }
 }
 /*----------------------------------------------------------------------------------------------------*/
@@ -90,7 +75,7 @@ body {
   text-rendering: optimizeLegibility;
   word-break: break-word;
 
-  font-family: Roboto, Arial, Sans-Serif;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Ubuntu,"Helvetica Neue",sans-serif;
   color: var(--text-color);
   font-size: var(--font-size);
   background: var(--background-color);
@@ -159,4 +144,6 @@ ul li {
   -webkit-user-select: none;
   touch-action: manipulation;
 }
+.request:hover {
+  background-color: var(--hover-color);
 }
