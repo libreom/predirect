@@ -29,12 +29,12 @@ async function requestPermissions() {
       console.log("Permission was granted");
       request.textContent =
         "Permissions granted";
-        request.style.backgroundColor = "green";
+        request.style.backgroundColor = "var(--green-color)";
     } else {
       console.log("Permission was refused");
       request.textContent =
         "Permissions refused";
-        request.style.backgroundColor = "red";
+        request.style.backgroundColor = "var(--red-color)";
     }
     return browser.permissions.getAll();
   }
