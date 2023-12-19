@@ -27,14 +27,14 @@ async function requestPermissions() {
   function onResponse(response) {
     if (response) {
       console.log("Permission was granted");
-      permissionStatus.textContent =
-        "Permissions granted and functionality will work normally.";
-      permissionStatus.style.color = "green";
+      request.textContent =
+        "Permissions granted";
+        request.style.backgroundColor = "green";
     } else {
       console.log("Permission was refused");
-      permissionStatus.textContent =
-        "Permissions refused and functionality will NOT work ";
-      permissionStatus.style.color = "red";
+      request.textContent =
+        "Permissions refused";
+        request.style.backgroundColor = "red";
     }
     return browser.permissions.getAll();
   }
