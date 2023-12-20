@@ -55,7 +55,7 @@ table {
   --button-text-color: #FFFFFF;
   --background-color: #FFFFFF;
   --primary-color: #4385BE;
-  --red-color: #AF3029
+  --red-color: #AF3029;
   --green-color: #3BB273;
 }
 @media (prefers-color-scheme: dark) {
