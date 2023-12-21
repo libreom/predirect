@@ -95,6 +95,11 @@ input:focus, select:focus, textarea:focus, button:focus {
   margin-top: calc(var(--font-size) * var(--line-height) * 3);
   padding: 0 var(--font-size);
 }
+@media (pointer: none), (pointer: coarse) {
+.wrapper {
+  margin-top: calc(var(--font-size) * var(--line-height) * 2);
+}
+}
 p + p {
   margin-bottom: calc(var(--font-size) * var(--line-height) * 1);
 }
