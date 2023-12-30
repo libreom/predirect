@@ -80,18 +80,11 @@ body {
   -webkit-tap-highlight-color: transparent;
 
   width: 100%;
-  min-width: 280px;
 
   overflow-x: hidden;
   scrollbar-width: thin;
   overflow-y: auto;
 }
-
-::-webkit-scrollbar-corner { background: rgba(0,0,0,0.5);}
-::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar { width: 5px; }
-::-moz-scrollbar { width: 5px; }
-::-ms-scrollbar { width: 5px; }
 
 input:focus, select:focus, textarea:focus, button:focus {
   outline: none;
@@ -155,6 +148,7 @@ input[type="checkbox"]{
 input[type=text] {
   margin-left: calc(var(--font-size) * 0.5);
   margin-bottom: calc(var(--font-size) * 0.5);
+  margin-right: calc(var(--font-size) * 0.5);
   font-size: 100%;
   border: 1px solid var(--input-border-color);
   border-radius: 4px;
