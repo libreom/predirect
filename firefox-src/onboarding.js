@@ -21,20 +21,19 @@ const permissionsToRequest = {
     "*://*.bandcamp.com/*",
     "*://*.tumblr.com/*",
     "*://*.soundcloud.com/*",
+    "*://*.reddit.com/*",
   ],
 };
 async function requestPermissions() {
   function onResponse(response) {
     if (response) {
       console.log("Permission was granted");
-      request.textContent =
-        "Permissions granted";
-        request.style.backgroundColor = "var(--green-color)";
+      request.textContent = "Permissions granted";
+      request.style.backgroundColor = "var(--green-color)";
     } else {
       console.log("Permission was refused");
-      request.textContent =
-        "Permissions refused";
-        request.style.backgroundColor = "var(--red-color)";
+      request.textContent = "Permissions refused";
+      request.style.backgroundColor = "var(--red-color)";
     }
     return browser.permissions.getAll();
   }

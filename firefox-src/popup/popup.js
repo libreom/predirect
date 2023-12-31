@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
     bandcamp: document.getElementById("bandcampInstance"),
     tumblr: document.getElementById("tumblrInstance"),
     soundcloud: document.getElementById("soundcloudInstance"),
+    reddit: document.getElementById("redditInstance"),
   };
 
   // Load saved preferences from storage
@@ -49,6 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
         bandcamp: true,
         tumblr: true,
         soundcloud: true,
+        reddit: true,
       };
       let defaultCustomInstances = {
         youtubeInstance: "",
@@ -71,6 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
         bandcampInstance: "",
         tumblrInstance: "",
         soundcloudInstance: "",
+        redditInstance: "",
       };
       const savedRedirectServices =
         data.redirectServices || defaultRedirectServices;
@@ -110,6 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
       bandcamp: document.getElementById("bandcamp").checked,
       tumblr: document.getElementById("tumblr").checked,
       soundcloud: document.getElementById("soundcloud").checked,
+      reddit: document.getElementById("reddit").checked,
     };
     const customInstances = {
       youtubeInstance: instances.youtube.value || "",
@@ -132,6 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
       bandcampInstance: instances.bandcamp.value || "",
       tumblrInstance: instances.tumblr.value || "",
       soundcloudInstance: instances.soundcloud.value || "",
+      redditInstance: instances.reddit.value || "",
     };
 
     // Save preferences to storage

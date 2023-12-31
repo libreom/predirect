@@ -19,6 +19,7 @@ let defaultRedirectServices = {
   bandcamp: true,
   tumblr: true,
   soundcloud: true,
+  reddit: true,
 };
 let defaultCustomInstances = {
   youtubeInstance: "",
@@ -41,20 +42,18 @@ let defaultCustomInstances = {
   bandcampInstance: "",
   tumblrInstance: "",
   soundcloudInstance: "",
+  redditInstance: "",
 };
 const youtubeInstances = [
-  "anontube.lvkaszus.pl",
-  "inv.citw.lgbt",
-  "inv.in.projectsegfau.lt",
+  "inv.n8pjl.ca",
   "inv.tux.pizza",
   "inv.us.projectsegfau.lt",
-  "invidious.asir.dev",
+  "invidious.drgns.space",
   "invidious.fdn.fr",
-  "invidious.io.lol",
   "invidious.lunar.icu",
   "invidious.nerdvpn.de",
-  "invidious.no-logs.com",
   "invidious.private.coffee",
+  "invidious.projectsegfau.lt",
   "invidious.protokolla.fi",
   "invidious.slipfox.xyz",
   "iv.datura.network",
@@ -64,6 +63,7 @@ const youtubeInstances = [
   "vid.priv.au",
   "vid.puffyan.us",
   "yewtu.be",
+  "youtube.owacon.moe",
   "yt.artemislena.eu",
   "yt.cdaut.de",
   "yt.drgnz.club",
@@ -71,24 +71,21 @@ const youtubeInstances = [
   "piped.privacydev.net",
   "piped.smnz.de",
   "piped.adminforge.de",
-  "piped.hostux.net",
 ];
 const twitterInstances = [
-  "n.biendeo.com",
   "n.opnxng.com",
   "n.populas.no",
-  "nitter.1d4.us",
   "nitter.adminforge.de",
   "nitter.catsarch.com",
   "nitter.cz",
-  "nitter.dafriser.be",
   "nitter.esmailelbob.xyz",
+  "nitter.eu.projectsegfau.lt",
   "nitter.in.projectsegfau.lt",
   "nitter.io.lol",
   "nitter.ktachibana.party",
+  "nitter.mint.lgbt",
   "nitter.moomoo.me",
   "nitter.net",
-  "nitter.no-logs.com",
   "nitter.nohost.network",
   "nitter.oksocial.net",
   "nitter.poast.org",
@@ -96,13 +93,12 @@ const twitterInstances = [
   "nitter.projectsegfau.lt",
   "nitter.salastil.com",
   "nitter.soopy.moe",
-  "nitter.tinfoil-hat.net",
+  "nitter.tux.pizza",
   "nitter.unixfox.eu",
   "nitter.woodland.cafe",
 ];
 const mediumInstances = [
   "scribe.rip",
-  "scribe.citizen4.eu",
   "scribe.bus-hit.me",
   "sc.vern.cc",
   "m.opnxng.com",
@@ -118,16 +114,18 @@ const tiktokInstances = [
   "tok.habedieeh.re",
   "tok.artemislena.eu",
   "tok.adminforge.de",
+  "tik.hostux.net",
   "proxitok.lunar.icu",
-  "proxitok.privacy.com.de",
 ];
 const quoraInstances = [
   "quetre.iket.me",
   "quetre.pussthecat.org",
   "quetre.esmailelbob.xyz",
   "quetre.privacydev.net",
+  "quetre.blackdrgn.nl",
+  "quetre.lunar.icu",
   "quetre.catsarch.com",
-  "quetre.frontendfriendly.xyz",
+  "quetre.frontendfriendly.xyz  ",
 ];
 const fandomInstances = [
   "breezewiki.com",
@@ -137,7 +135,6 @@ const fandomInstances = [
   "bw.projectsegfau.lt",
   "breeze.hostux.net",
   "bw.artemislena.eu",
-  "nerd.whatever.social",
   "breezewiki.frontendfriendly.xyz",
   "breeze.nohost.network",
   "z.opnxng.com",
@@ -150,10 +147,11 @@ const imdbInstances = [
   "libremdb.pussthecat.org",
   "libremdb.esmailelbob.xyz",
   "libremdb.iket.me",
+  "ld.vern.cc",
   "binge.whatever.social",
   "libremdb.lunar.icu",
   "libremdb.catsarch.com",
-  "libremdb.frontendfriendly.xyz",
+  "libremdb.frontendfriendly.xyz  ",
 ];
 const geniusInstances = [
   "dumb.privacydev.net",
@@ -190,9 +188,14 @@ const goodreadsInstances = [
 ];
 const imgurInstances = [
   "rimgo.pussthecat.org",
+  "rimgo.totaldarkness.net",
   "rimgo.bus-hit.me",
+  "imgur.artemislena.eu",
+  "rimgo.vern.cc",
   "rim.odyssey346.dev",
+  "i.habedieeh.re",
   "rimgo.hostux.net",
+  "ri.zzls.xyz",
   "rimgo.lunar.icu",
   "rimgo.kling.gg",
   "rimgo.projectsegfau.lt",
@@ -203,7 +206,6 @@ const pixivInstances = [
   "pix.chaotic.ninja",
   "art.whateveritworks.org",
 ];
-const udInstances = ["rd.vern.cc", "ruraldictionary.esmailelbob.xyz"];
 const ultimateGuitarInstances = ["freetar.androidloves.me"];
 const twitchInstances = [
   "safetwitch.drgns.space",
@@ -259,9 +261,25 @@ const wolframAlphaInstances = [
   "wolfreealpha.uk.to",
   "wolfreealpha.us.to",
 ];
+const redditInstances = [
+  "l.opnxng.com",
+  "libreddit.bus-hit.me",
+  "libreddit.lunar.icu",
+  "libreddit.northboot.xyz",
+  "libreddit.oxymagnesium.com",
+  "libreddit.privacydev.net",
+  "libreddit.projectsegfau.lt",
+  "libreddit.strongthany.cc",
+  "lr.artemislena.eu",
+  "reddit.invak.id",
+  "reddit.simo.sh",
+  "reddit.utsav2.dev",
+  "safereddit.com",
+];
 const bandcampInstances = ["tent.sny.sh", "tent.bloat.cat", "tn.vern.cc"];
 const tumblrInstances = ["pb.bloat.cat"];
 const soundcloudInstances = ["tubo.migalmoreno.com"];
+const udInstances = ["rd.vern.cc", "ruraldictionary.esmailelbob.xyz"];
 function eventualUpdateRules() {
   browser.storage.sync
     .get(["redirectServices", "customInstances"])
@@ -325,6 +343,8 @@ function updateRules(parameterRedirectServices, customInstances) {
   const randSoundcloudInstance =
     customInstances.soundcloudInstance ||
     getRandomInstance(soundcloudInstances);
+  const randRedditInstance =
+    customInstances.redditInstance || getRandomInstance(redditInstances);
 
   function createRedirectRule(id, filter, instance) {
     return {
@@ -613,11 +633,15 @@ function updateRules(parameterRedirectServices, customInstances) {
       },
     });
   }
-
+  if (parameterRedirectServices.reddit) {
+    redirectRules.push(
+      createRedirectRule(32, "reddit.com", randRedditInstance)
+    );
+  }
   browser.declarativeNetRequest.updateDynamicRules({
     removeRuleIds: [
       1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-      22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
+      22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32,
     ],
     addRules: redirectRules,
   });

@@ -38,7 +38,8 @@
     "*://*.wolframalpha.com/*",
     "*://*.bandcamp.com/*",
     "*://*.tumblr.com/*",
-    "*://*.soundcloud.com/*"
+    "*://*.soundcloud.com/*",
+    "*://*.reddit.com/*"
   ],
   "web_accessible_resources": [
     {

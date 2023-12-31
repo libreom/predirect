@@ -1,30 +1,26 @@
-# Predirect
+<div align="center">
+<img src="assets/icon.svg" height="90" alt="Predirect logo">
+<h1>Predirect</h1>
+<h3>A manifest v3 web extension with minimal permissions that automatically redirects popular sites to privacy friendly frontends</h3>
 
-A manifest v3 web extension with minimal permissions that automatically redirects popular sites to privacy friendly frontends
-
-## Installation
-
-### Chrome/Chromium based browsers
-
-<a href="https://chromewebstore.google.com/detail/predirect/aiillidfcgfckfhkpiakhkkpbkknagnp"><img src = "assets/chrome.png" alt="Available in the Chrome Web Store" width="172">
+<a href="https://chromewebstore.google.com/detail/predirect/aiillidfcgfckfhkpiakhkkpbkknagnp"><img src = "assets/chrome.png" alt="Available in the Chrome Web Store" height="60">
+</a>
+<a href="https://addons.mozilla.org/en-US/firefox/addon/predirector/"><img src = "assets/mozilla.svg" alt="Get the addon firefox" height="60">
+</a>
+<a href="https://microsoftedge.microsoft.com/addons/detail/predirect/meehajiemfkahmhbemddchfhafmjcnij"><img src = "assets/edge.svg" alt="Get the addon Microsoft Edge" height="60">
 </a>
 
-### Firefox/ Firefox Android
+[![GitHub Repo stars](https://img.shields.io/github/stars/libreom/predirect?style=social)](https://github.com/libreom/predirect/stargazers)
 
-<a href="https://addons.mozilla.org/en-US/firefox/addon/predirector/"><img src = "assets/mozilla.svg" alt="Get the addon firefox" width="172">
-</a>
-
-### Microsoft Edge
-
-<a href="https://microsoftedge.microsoft.com/addons/detail/predirect/meehajiemfkahmhbemddchfhafmjcnij"><img src = "assets/edge.svg" alt="Get the addon Microsoft Edge" width="172">
-</a>
+</div>
 
 ## Redirects
 
 | From                                                 | To                                                                                                                                                               |
 | ---------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [YouTube](https://youtube.com) (Links & embeds)      | [Piped](https://github.com/TeamPiped/Piped), [Invidious](https://github.com/iv-org/invidious)                                                                    |
-| [𝕏](https://twitter.com)                       | [Nitter](https://github.com/zedeus/nitter)                                                                                                                       |
+| [𝕏](https://twitter.com)                             | [Nitter](https://github.com/zedeus/nitter)                                                                                                                       |
+| [Reddit](https://reddit.com)                         | [redlib](https://github.com/redlib-org/redlib)                                                                                                                   |
 | [Medium](https://medium.com)                         | [Scribe](https://sr.ht/~edwardloveall/Scribe/), [LibMedium](https://github.com/realaravinth/libmedium), [medium.rip](https://github.com/SphericalKat/medium.rip) |
 | [TikTok](https://tiktok.com)                         | [ProxiTok](https://github.com/pablouser1/ProxiTok)                                                                                                               |
 | [Quora](https://quora.com)                           | [Quetre](https://github.com/zyachel/quetre)                                                                                                                      |
