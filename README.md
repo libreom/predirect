@@ -43,3 +43,7 @@ A manifest v3 web extension with minimal permissions that automatically redirect
 | [Twitch](https://www.twitch.tv/)                     | [SafeTwitch](https://codeberg.org/SafeTwitch/safetwitch)                                                                                                         |
 | [Instagram](https://www.instagram.com/)              | [Proxigram](https://codeberg.org/ThePenguinDev/proxigram)                                                                                                        |
 | [WolframAlpha](https://www.wolframalpha.com/)        | [Wolfree](https://codeberg.org/wolfree/wolfree-dockerfile)                                                                                                       |
+
+## Attribution
+
+Icon modified from u-turn by Creative Stall from [Noun Project](https://thenounproject.com/browse/icons/term/u-turn/) (CC BY 3.0)
