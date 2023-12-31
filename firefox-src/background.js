@@ -125,7 +125,7 @@ const quoraInstances = [
   "quetre.blackdrgn.nl",
   "quetre.lunar.icu",
   "quetre.catsarch.com",
-  "quetre.frontendfriendly.xyz  ",
+  "quetre.frontendfriendly.xyz",
 ];
 const fandomInstances = [
   "breezewiki.com",
@@ -151,7 +151,7 @@ const imdbInstances = [
   "binge.whatever.social",
   "libremdb.lunar.icu",
   "libremdb.catsarch.com",
-  "libremdb.frontendfriendly.xyz  ",
+  "libremdb.frontendfriendly.xyz",
 ];
 const geniusInstances = [
   "dumb.privacydev.net",
