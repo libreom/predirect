@@ -28,7 +28,7 @@
 | [Fandom](https://www.fandom.com/)                    | [Breezewiki](https://gitdab.com/cadence/breezewiki)                                                                                                              |
 | [IMDb](https://www.imdb.com//)                       | [libremdb](https://github.com/zyachel/libremdb)                                                                                                                  |
 | [Genius](https://genius.com)                         | [Dumb](https://github.com/rramiachraf/dumb)                                                                                                                      |
-| [YoutTube Music](https://music.youtube.com//)        | [Beatbump](https://github.com/snuffyDev/Beatbump), [Hyperpipe](https://codeberg.org/Hyperpipe/Hyperpipe)                                                         |
+| [YouTube Music](https://music.youtube.com//)        | [Beatbump](https://github.com/snuffyDev/Beatbump), [Hyperpipe](https://codeberg.org/Hyperpipe/Hyperpipe)                                                         |
 | [Goodreads](https://www.goodreads.com/)              | [BiblioReads](https://github.com/nesaku/BiblioReads)                                                                                                             |
 | [Imgur](https://imgur.com/)                          | [Rimgo](https://codeberg.org/rimgo/rimgo)                                                                                                                        |
 | [Pixiv](https://www.pixiv.net/)                      | [Pixivfe](https://codeberg.org/vnpower/pixivfe)                                                                                                                  |
