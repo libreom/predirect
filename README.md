@@ -11,6 +11,7 @@
 </a>
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/libreom/predirect?style=social)](https://github.com/libreom/predirect/stargazers)
+[![GitHub License](https://img.shields.io/github/license/libreom/predirect?style=social)](./COPYING)
 
 </div>
 
