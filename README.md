@@ -14,7 +14,7 @@
 [![GitHub License](https://img.shields.io/github/license/libreom/predirect?style=social)](./COPYING)
 
 </div>
-
+- Works in [Firefox for Android](https://addons.mozilla.org/en-US/android/addon/predirector/)
 ## Redirects
 
 | From                                                 | To                                                                                                                                                               |
