@@ -22,6 +22,16 @@ const permissionsToRequest = {
     "*://*.tumblr.com/*",
     "*://*.soundcloud.com/*",
     "*://*.reddit.com/*",
+    "*://*.t.co/*",
+    "*://*.twimg.com/*",
+    "*://*.instructables.com/*",
+    "*://*.knowyourmeme.com/*",
+    "*://*.snopes.com/*",
+    "*://*.reuters.com/*",
+    "*://*.stackoverflow.com/*",
+    "*://*.stackexchange.com/*",
+    "*://www.google.com/*",
+    "*://translate.google.com/*",
   ],
 };
 async function requestPermissions() {

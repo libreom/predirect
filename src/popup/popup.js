@@ -23,6 +23,13 @@ document.addEventListener("DOMContentLoaded", function () {
     tumblr: document.getElementById("tumblrInstance"),
     soundcloud: document.getElementById("soundcloudInstance"),
     reddit: document.getElementById("redditInstance"),
+    search: document.getElementById("searchInstance"),
+    translate: document.getElementById("translateInstance"),
+    snopes: document.getElementById("snopesInstance"),
+    instructables: document.getElementById("instructablesInstance"),
+    knowyourmeme: document.getElementById("knowyourmemeInstance"),
+    reuters: document.getElementById("reutersInstance"),
+    stackoverflow: document.getElementById("stackoverflowInstance"),
   };
 
   // Load saved preferences from storage
@@ -51,6 +58,13 @@ document.addEventListener("DOMContentLoaded", function () {
         tumblr: true,
         soundcloud: true,
         reddit: true,
+        instructables: true,
+        knowyourmeme: true,
+        search: false,
+        translate: true,
+        snopes: false,
+        reuters: false,
+        stackoverflow: false,
       };
       let defaultCustomInstances = {
         youtubeInstance: "",
@@ -74,6 +88,13 @@ document.addEventListener("DOMContentLoaded", function () {
         tumblrInstance: "",
         soundcloudInstance: "",
         redditInstance: "",
+        instructablesInstance: "",
+        knowyourmemeInstance: "",
+        searchInstance: "",
+        translateInstance: "",
+        snopesInstance: "",
+        reutersInstance: "",
+        stackoverflowInstance: "",
       };
       const savedRedirectServices =
         data.redirectServices || defaultRedirectServices;
@@ -115,6 +136,13 @@ document.addEventListener("DOMContentLoaded", function () {
       tumblr: document.getElementById("tumblr").checked,
       soundcloud: document.getElementById("soundcloud").checked,
       reddit: document.getElementById("reddit").checked,
+      instructables: document.getElementById("instructables").checked,
+      knowyourmeme: document.getElementById("knowyourmeme").checked,
+      search: document.getElementById("search").checked,
+      translate: document.getElementById("translate").checked,
+      snopes: document.getElementById("snopes").checked,
+      reuters: document.getElementById("reuters").checked,
+      stackoverflow: document.getElementById("stackoverflow").checked,
     };
     const customInstances = {
       youtubeInstance: instances.youtube.value || "",
@@ -138,6 +166,13 @@ document.addEventListener("DOMContentLoaded", function () {
       tumblrInstance: instances.tumblr.value || "",
       soundcloudInstance: instances.soundcloud.value || "",
       redditInstance: instances.reddit.value || "",
+      instructablesInstance: instances.instructables.value || "",
+      knowyourmemeInstance: instances.knowyourmeme.value || "",
+      searchInstance: instances.search.value || "",
+      translateInstance: instances.translate.value || "",
+      snopesInstance: instances.snopes.value || "",
+      reutersInstance: instances.reuters.value || "",
+      stackoverflowInstance: instances.stackoverflow.value || "",
     };
 
     // Save preferences to storage

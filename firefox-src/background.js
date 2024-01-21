@@ -20,6 +20,13 @@ let defaultRedirectServices = {
   tumblr: true,
   soundcloud: true,
   reddit: true,
+  instructables: true,
+  knowyourmeme: true,
+  search: false,
+  translate: true,
+  snopes: false,
+  reuters: false,
+  stackoverflow: false,
 };
 let defaultCustomInstances = {
   youtubeInstance: "",
@@ -43,6 +50,13 @@ let defaultCustomInstances = {
   tumblrInstance: "",
   soundcloudInstance: "",
   redditInstance: "",
+  instructablesInstance: "",
+  knowyourmemeInstance: "",
+  searchInstance: "",
+  translateInstance: "",
+  snopesInstance: "",
+  reutersInstance: "",
+  stackoverflowInstance: "",
 };
 const youtubeInstances = [
   "inv.n8pjl.ca",
@@ -280,6 +294,37 @@ const bandcampInstances = ["tent.sny.sh", "tent.bloat.cat", "tn.vern.cc"];
 const tumblrInstances = ["pb.bloat.cat"];
 const soundcloudInstances = ["tubo.migalmoreno.com"];
 const udInstances = ["rd.vern.cc", "ruraldictionary.esmailelbob.xyz"];
+const instructablesInstances = ["ds.vern.cc"];
+const knowyourmemeInstances = ["mm.vern.cc"];
+const searchInstances = [
+  "search.bus-hit.me",
+  "searxng.site",
+  "search.demoniak.ch",
+  "priv.au",
+  "search.rhscz.eu",
+  "searx.be",
+  "search.hbubli.cc",
+  "search.im-in.space",
+  "searx.kutay.dev",
+  "opnxng.com",
+];
+const translateInstances = [
+  "mozhi.aryak.me",
+  "translate.bus-hit.me",
+  "nyc1.mz.ggtyler.dev",
+];
+const snopesInstances = ["sd.vern.cc"];
+const reutersInstances = ["neuters.de"];
+const stackoverflowInstances = [
+  "code.whatever.social",
+  "ao.vern.cc",
+  "overflow.smnz.de",
+  "overflow.lunar.icu",
+  "overflow.adminforge.de",
+  "overflow.hostux.net",
+  "overflow.projectsegfau.lt",
+  "anonoverflow.frontendfriendly.xyz",
+];
 function eventualUpdateRules() {
   browser.storage.sync
     .get(["redirectServices", "customInstances"])
@@ -345,6 +390,23 @@ function updateRules(parameterRedirectServices, customInstances) {
     getRandomInstance(soundcloudInstances);
   const randRedditInstance =
     customInstances.redditInstance || getRandomInstance(redditInstances);
+  const randInstructablesInstance =
+    customInstances.instructablesInstance ||
+    getRandomInstance(instructablesInstances);
+  const randknowyourmemeInstance =
+    customInstances.knowyourmemeInstance ||
+    getRandomInstance(knowyourmemeInstances);
+  const randsearchInstance =
+    customInstances.searchInstance || getRandomInstance(searchInstances);
+  const randtranslateInstance =
+    customInstances.translateInstance || getRandomInstance(translateInstances);
+  const randsnopesInstance =
+    customInstances.snopesInstance || getRandomInstance(snopesInstances);
+  const randreutersInstance =
+    customInstances.reutersInstance || getRandomInstance(reutersInstances);
+  const randstackoverflowInstance =
+    customInstances.stackoverflowInstance ||
+    getRandomInstance(stackoverflowInstances);
 
   function createRedirectRule(id, filter, instance) {
     return {
@@ -403,20 +465,48 @@ function updateRules(parameterRedirectServices, customInstances) {
       createRedirectRule(4, "twitter.com", randTwitterInstance)
     );
     redirectRules.push(createRedirectRule(5, "x.com", randTwitterInstance));
+    redirectRules.push({
+      id: 6,
+      priority: 1,
+      condition: {
+        regexFilter: "^https://t\\.co/(.*)$",
+        resourceTypes: ["main_frame"],
+      },
+      action: {
+        type: "redirect",
+        redirect: {
+          regexSubstitution: `https://${randTwitterInstance}/t.co/\\1`,
+        },
+      },
+    });
+    redirectRules.push({
+      id: 7,
+      priority: 1,
+      condition: {
+        regexFilter: "^https://(pbs|video)\\.twimg\\.com/(.*)$",
+        resourceTypes: ["main_frame"],
+      },
+      action: {
+        type: "redirect",
+        redirect: {
+          regexSubstitution: `https://${randTwitterInstance}/pic/\\1.twimg.com/\\2`,
+        },
+      },
+    });
   }
 
   if (parameterRedirectServices.medium) {
-    redirectRules.push(createRedirectRule(6, "medium.com", randMediumInstance));
+    redirectRules.push(createRedirectRule(8, "medium.com", randMediumInstance));
   }
   if (parameterRedirectServices.tiktok) {
-    redirectRules.push(createRedirectRule(7, "tiktok.com", randTiktokInstance));
+    redirectRules.push(createRedirectRule(9, "tiktok.com", randTiktokInstance));
   }
   if (parameterRedirectServices.quora) {
-    redirectRules.push(createRedirectRule(8, "quora.com", randQuoraInstance));
+    redirectRules.push(createRedirectRule(10, "quora.com", randQuoraInstance));
   }
   if (parameterRedirectServices.fandom) {
     redirectRules.push({
-      id: 9,
+      id: 11,
       priority: 2,
       condition: {
         regexFilter: "^https://(.*)\\.fandom\\.com/(.*)$",
@@ -432,16 +522,16 @@ function updateRules(parameterRedirectServices, customInstances) {
     });
   }
   if (parameterRedirectServices.imdb) {
-    redirectRules.push(createRedirectRule(10, "imdb.com", randImdbInstance));
+    redirectRules.push(createRedirectRule(12, "imdb.com", randImdbInstance));
   }
   if (parameterRedirectServices.genius) {
     redirectRules.push(
-      createRedirectRule(11, "genius.com", randGeniusInstance)
+      createRedirectRule(13, "genius.com", randGeniusInstance)
     );
   }
   if (parameterRedirectServices.ytmusic) {
     redirectRules.push({
-      id: 12,
+      id: 14,
       priority: 2,
       condition: {
         urlFilter: `||music.youtube.com`,
@@ -458,13 +548,13 @@ function updateRules(parameterRedirectServices, customInstances) {
   }
   if (parameterRedirectServices.goodreads) {
     redirectRules.push(
-      createRedirectRule(13, "goodreads.com", randgoodreadsInstance)
+      createRedirectRule(15, "goodreads.com", randgoodreadsInstance)
     );
   }
   if (parameterRedirectServices.imgur) {
-    redirectRules.push(createRedirectRule(14, "imgur.com", randimgurInstance));
+    redirectRules.push(createRedirectRule(16, "imgur.com", randimgurInstance));
     redirectRules.push({
-      id: 15,
+      id: 17,
       priority: 2,
       condition: {
         regexFilter: "^https?://i\\.stack\\.imgur\\.com(/.*)?$",
@@ -480,9 +570,9 @@ function updateRules(parameterRedirectServices, customInstances) {
     });
   }
   if (parameterRedirectServices.pixiv) {
-    redirectRules.push(createRedirectRule(16, "pixiv.net", randpixivInstance));
+    redirectRules.push(createRedirectRule(18, "pixiv.net", randpixivInstance));
     redirectRules.push({
-      id: 17,
+      id: 19,
       priority: 2,
       condition: {
         regexFilter: "^https?://www?.pixiv\\.net/en(/.*)?$",
@@ -499,33 +589,33 @@ function updateRules(parameterRedirectServices, customInstances) {
   }
   if (parameterRedirectServices.ud) {
     redirectRules.push(
-      createRedirectRule(18, "urbandictionary.com", randUDInstance)
+      createRedirectRule(20, "urbandictionary.com", randUDInstance)
     );
   }
   if (parameterRedirectServices.ultimateGuitar) {
     redirectRules.push(
-      createRedirectRule(19, "ultimate-guitar.com", randUltimateGuitarInstance)
+      createRedirectRule(21, "ultimate-guitar.com", randUltimateGuitarInstance)
     );
   }
   if (parameterRedirectServices.twitch) {
-    redirectRules.push(createRedirectRule(20, "twitch.tv", randTwitchInstance));
+    redirectRules.push(createRedirectRule(22, "twitch.tv", randTwitchInstance));
   }
   if (parameterRedirectServices.instagram) {
     redirectRules.push(
-      createRedirectRule(21, "instagram.com", randInstagramInstance)
+      createRedirectRule(23, "instagram.com", randInstagramInstance)
     );
   }
   if (parameterRedirectServices.wolframAlpha) {
     redirectRules.push(
-      createRedirectRule(22, "wolframalpha.com", randWolframAlphaInstance)
+      createRedirectRule(24, "wolframalpha.com", randWolframAlphaInstance)
     );
   }
   if (parameterRedirectServices.bandcamp) {
     redirectRules.push(
-      createRedirectRule(23, "bandcamp.com", randBandcampInstance)
+      createRedirectRule(25, "bandcamp.com", randBandcampInstance)
     );
     redirectRules.push({
-      id: 24,
+      id: 26,
       priority: 2,
       condition: {
         regexFilter: "^https://(.*)\\.bandcamp\\.com/$",
@@ -539,7 +629,7 @@ function updateRules(parameterRedirectServices, customInstances) {
       },
     });
     redirectRules.push({
-      id: 25,
+      id: 27,
       priority: 3,
       condition: {
         regexFilter: "^https://(.*)\\.bandcamp\\.com/(track|album)/(.*)$",
@@ -553,7 +643,7 @@ function updateRules(parameterRedirectServices, customInstances) {
       },
     });
     redirectRules.push({
-      id: 26,
+      id: 28,
       priority: 2,
       condition: {
         regexFilter: "^https://bandcamp\\.com/search\\?q=(.*)$",
@@ -569,10 +659,10 @@ function updateRules(parameterRedirectServices, customInstances) {
   }
   if (parameterRedirectServices.tumblr) {
     redirectRules.push(
-      createRedirectRule(27, "tumblr.com", randTumblrInstance)
+      createRedirectRule(29, "tumblr.com", randTumblrInstance)
     );
     redirectRules.push({
-      id: 28,
+      id: 30,
       priority: 2,
       condition: {
         regexFilter: "^https://(.*)\\.tumblr\\.com/(.*)$",
@@ -587,7 +677,7 @@ function updateRules(parameterRedirectServices, customInstances) {
       },
     });
     redirectRules.push({
-      id: 29,
+      id: 31,
       priority: 3,
       condition: {
         regexFilter: "^https://(.*)\\.tumblr\\.com/post/(.*)$",
@@ -604,7 +694,7 @@ function updateRules(parameterRedirectServices, customInstances) {
   }
   if (parameterRedirectServices.soundcloud) {
     redirectRules.push({
-      id: 30,
+      id: 32,
       priority: 2,
       action: {
         type: "redirect",
@@ -619,7 +709,7 @@ function updateRules(parameterRedirectServices, customInstances) {
       },
     });
     redirectRules.push({
-      id: 31,
+      id: 33,
       priority: 1,
       condition: {
         regexFilter: "^https://soundcloud\\.com/(.*)$",
@@ -635,13 +725,116 @@ function updateRules(parameterRedirectServices, customInstances) {
   }
   if (parameterRedirectServices.reddit) {
     redirectRules.push(
-      createRedirectRule(32, "reddit.com", randRedditInstance)
+      createRedirectRule(34, "reddit.com", randRedditInstance)
     );
+  }
+  if (parameterRedirectServices.instructables) {
+    redirectRules.push(
+      createRedirectRule(35, "instructables.com", randInstructablesInstance)
+    );
+  }
+  if (parameterRedirectServices.knowyourmeme) {
+    redirectRules.push(
+      createRedirectRule(36, "knowyourmeme.com", randknowyourmemeInstance)
+    );
+  }
+  if (parameterRedirectServices.search) {
+    redirectRules.push({
+      id: 37,
+      priority: 1,
+      condition: {
+        urlFilter: "||www.google.com/search",
+        resourceTypes: ["main_frame"],
+      },
+      action: {
+        type: "redirect",
+        redirect: {
+          transform: {
+            scheme: "https",
+            host: randsearchInstance,
+            queryTransform: {
+              removeParams: [
+                "client",
+                "sclient",
+                "source",
+                "aq",
+                "pq",
+                "sa",
+                "swrnum",
+                "as_q",
+                "oi",
+                "resnum",
+                "sourceid",
+                "ie",
+                "gs_lcrp",
+                "oq",
+                "newwindow",
+                "safe",
+                "pws",
+                "complete",
+                "as_qdr",
+                "adtest",
+              ],
+            },
+          },
+        },
+      },
+    });
+  }
+  if (parameterRedirectServices.translate) {
+    redirectRules.push({
+      id: 38,
+      priority: 1,
+      condition: {
+        urlFilter: `||translate.google.com`,
+        resourceTypes: ["main_frame"],
+      },
+      action: {
+        type: "redirect",
+        redirect: {
+          transform: {
+            scheme: "https",
+            host: randtranslateInstance,
+            queryTransform: { removeParams: ["op"] },
+          },
+        },
+      },
+    });
+  }
+  if (parameterRedirectServices.snopes) {
+    redirectRules.push(
+      createRedirectRule(39, "snopes.com", randsnopesInstance)
+    );
+  }
+  if (parameterRedirectServices.reuters) {
+    redirectRules.push(
+      createRedirectRule(40, "reuters.com", randreutersInstance)
+    );
+  }
+  if (parameterRedirectServices.stackoverflow) {
+    redirectRules.push(
+      createRedirectRule(41, "stackoverflow.com", randstackoverflowInstance)
+    );
+    redirectRules.push({
+      id: 42,
+      priority: 1,
+      condition: {
+        regexFilter: "^https://(.*)\\.stackexchange\\.com/questions/(.*)$",
+        resourceTypes: ["main_frame"],
+      },
+      action: {
+        type: "redirect",
+        redirect: {
+          regexSubstitution: `https://${randstackoverflowInstance}/exchange/\\1/questions/\\2`,
+        },
+      },
+    });
   }
   browser.declarativeNetRequest.updateDynamicRules({
     removeRuleIds: [
       1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-      22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32,
+      22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39,
+      40, 41, 42,
     ],
     addRules: redirectRules,
   });
