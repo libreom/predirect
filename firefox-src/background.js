@@ -427,9 +427,22 @@ function updateRules(parameterRedirectServices, customInstances) {
   }
 
   if (parameterRedirectServices.youtube) {
-    redirectRules.push(
-      createRedirectRule(1, "youtube.com", randYoutubeInstance)
-    );
+    redirectRules.push({
+      id: 1,
+      priority: 1,
+      condition: {
+        urlFilter: "||youtube.com",
+        resourceTypes: ["main_frame"],
+        excludedInitiatorDomains: [randYoutubeInstance],
+        excludedRequestDomains: ["accounts.youtube.com", "studio.youtube.com"],
+      },
+      action: {
+        type: "redirect",
+        redirect: {
+          transform: { scheme: "https", host: randYoutubeInstance },
+        },
+      },
+    });
     redirectRules.push({
       id: 2,
       priority: 1,
