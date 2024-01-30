@@ -826,13 +826,13 @@ function updateRules(parameterRedirectServices, customInstances) {
   }
   if (parameterRedirectServices.stackoverflow) {
     redirectRules.push(
-      createRedirectRule(41, "stackoverflow.com", randstackoverflowInstance)
+      createRedirectRule(41, "https?:\/{2}(?:([a-zA-Z0-9-]+)\.)?stackoverflow\.com\/questions", randstackoverflowInstance)
     );
     redirectRules.push({
       id: 42,
       priority: 1,
       condition: {
-        regexFilter: "^https://(.*)\\.stackexchange\\.com/questions/(.*)$",
+        regexFilter: "https?:\/{2}(?:([a-zA-Z0-9-]+)\.)?stackexchange\.com\/questions",
         resourceTypes: ["main_frame"],
       },
       action: {
