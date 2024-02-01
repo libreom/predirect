@@ -99,7 +99,6 @@ const twitterInstances = [
   "nitter.ktachibana.party",
   "nitter.mint.lgbt",
   "nitter.moomoo.me",
-  "nitter.net",
   "nitter.nohost.network",
   "nitter.oksocial.net",
   "nitter.poast.org",
