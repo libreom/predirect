@@ -1,0 +1,12 @@
+- ~~clarify custom instance format~~
+- ~~all host permissions optional and onboarding(parity to firefox - onboarding.js)~~
+- ~~Switch to declarativeNetRequestHostAccess~~
+- ~~Merge both chrome and firefox codebase(browser,chrome namespace & promises, callbacks- background.js,popup.js but separate manifest for now)~~
+- Detect permissions granted in popup and prompt for grant
+- ensure smooth update,addition and removal of sites
+- Update instances and remove dead ones (explore automation)
+- youtu.be handling
+- Refactor and updatable instance lists - probably through json (even consider new ota host permissions or at least updatable DNR rules with already acquired host permissions)
+- More advanced options page
+- CI/CD for publishing to stores
+- Consider freetube (Windows 7 port too)

@@ -78,13 +78,13 @@ body {
   background: var(--background-color);
   line-height: var(--line-height);
   -webkit-tap-highlight-color: transparent;
-
   width: 100%;
-
   overflow-x: hidden;
   scrollbar-width: thin;
   overflow-y: auto;
 }
+
+
 
 input:focus, select:focus, textarea:focus, button:focus {
   outline: none;

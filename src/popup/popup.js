@@ -33,9 +33,9 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   // Load saved preferences from storage
-  chrome.storage.sync.get(
-    ["redirectServices", "customInstances"],
-    function (data) {
+  chrome.storage.sync
+    .get(["redirectServices", "customInstances"])
+    .then((data) => {
       let defaultRedirectServices = {
         youtube: true,
         twitter: true,
@@ -110,8 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
           input.value = customInstances[input.id];
         });
       }
-    }
-  );
+    });
 
   function saveOptions() {
     const redirectServices = {

@@ -1,23 +1,5 @@
-{
-  "manifest_version": 3,
-  "name": "Predirect",
-  "description": "Redirect to privacy friendly alternatives",
-  "version": "1.2",
-  "permissions": ["declarativeNetRequest", "storage", "alarms"],
-  "action": {
-    "default_popup": "popup/popup.html",
-    "default_icon": "assets/icon.png"
-  },
-  "icons": {
-    "16": "assets/icon-16.png",
-    "32": "assets/icon-32.png",
-    "48": "assets/icon-48.png",
-    "128": "assets/icon-128.png"
-  },
-  "background": {
-    "service_worker": "background.js"
-  },
-  "host_permissions": [
+const permissionsToRequest = {
+  origins: [
     "*://*.youtube.com/*",
     "*://*.youtube-nocookie.com/*",
     "*://*.twitter.com/*",
@@ -49,6 +31,28 @@
     "*://*.stackoverflow.com/*",
     "*://*.stackexchange.com/*",
     "*://www.google.com/*",
-    "*://translate.google.com/*"
-  ]
+    "*://translate.google.com/*",
+  ],
+};
+async function requestPermissions() {
+  function onResponse(response) {
+    if (response) {
+      console.log("Permission was granted");
+      request.textContent = "Permissions granted";
+      request.style.backgroundColor = "var(--green-color)";
+    } else {
+      console.log("Permission was refused");
+      request.textContent = "Permissions refused";
+      request.style.backgroundColor = "var(--red-color)";
+    }
+    return chrome.permissions.getAll();
+  }
+
+  const response = await chrome.permissions.request(permissionsToRequest);
+  const currentPermissions = await onResponse(response);
+
+  console.log(`Current permissions:`, currentPermissions);
 }
+document
+  .querySelector("#request")
+  .addEventListener("click", requestPermissions);

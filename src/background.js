@@ -291,10 +291,14 @@ const redditInstances = [
   "safereddit.com",
 ];
 const bandcampInstances = ["tent.sny.sh", "tent.bloat.cat", "tn.vern.cc"];
-const tumblrInstances = ["pb.bloat.cat"];
+const tumblrInstances = ["pb.bloat.cat", "tb.opnxng.com", "pb.exozy.me"];
 const soundcloudInstances = ["tubo.migalmoreno.com"];
-const udInstances = ["rd.vern.cc", "ruraldictionary.esmailelbob.xyz"];
-const instructablesInstances = ["ds.vern.cc"];
+const udInstances = [
+  "rd.vern.cc",
+  "rd.bloat.cat",
+  "ruraldictionary.esmailelbob.xyz",
+];
+const instructablesInstances = ["ds.vern.cc", "destructables.esmailelbob.xyz"];
 const knowyourmemeInstances = ["mm.vern.cc"];
 const searchInstances = [
   "search.bus-hit.me",
@@ -313,7 +317,7 @@ const translateInstances = [
   "translate.bus-hit.me",
   "nyc1.mz.ggtyler.dev",
 ];
-const snopesInstances = ["sd.vern.cc"];
+const snopesInstances = ["sd.vern.cc", "suds.esmailelbob.xyz"];
 const reutersInstances = ["neuters.de"];
 const stackoverflowInstances = [
   "code.whatever.social",
@@ -326,17 +330,16 @@ const stackoverflowInstances = [
   "anonoverflow.frontendfriendly.xyz",
 ];
 function eventualUpdateRules() {
-  chrome.storage.sync.get(
-    ["redirectServices", "customInstances"],
-    function (savedData) {
+  chrome.storage.sync
+    .get(["redirectServices", "customInstances"])
+    .then((savedData) => {
       const savedRedirectServices =
         savedData.redirectServices || defaultRedirectServices;
       const customInstances =
         savedData.customInstances || defaultCustomInstances;
       updateRules(savedRedirectServices, customInstances);
       console.log("eventually updated rules");
-    }
-  );
+    });
 }
 eventualUpdateRules();
 function getRandomInstance(instances) {
@@ -886,5 +889,14 @@ chrome.runtime.onMessage.addListener((message) => {
     redirectServices = message.redirectServices;
     customInstances = message.customInstances;
     updateRules(redirectServices, customInstances);
+  }
+});
+chrome.runtime.onInstalled.addListener((handleInstalled) => {
+  if (handleInstalled.reason == "install" || "update") {
+    //first install
+    //show onboarding page
+    chrome.tabs.create({
+      url: "onboarding.html",
+    });
   }
 });
