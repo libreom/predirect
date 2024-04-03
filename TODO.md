@@ -1,12 +1,16 @@
-- ~~clarify custom instance format~~
-- ~~all host permissions optional and onboarding(parity to firefox - onboarding.js)~~
+- [#27](https://github.com/libreom/predirect/issues/27)  ~~clarify custom instance format~~
+- [#23](https://github.com/libreom/predirect/issues/23) ~~all host permissions optional and onboarding(parity to firefox - onboarding.js)~~
 - ~~Switch to declarativeNetRequestHostAccess~~
-- ~~Merge both chrome and firefox codebase(browser,chrome namespace & promises, callbacks- background.js,popup.js but separate manifest for now)~~
+-  ~~Merge both chrome and firefox codebase(browser,chrome namespace & promises, callbacks- background.js,popup.js but separate manifest for now)~~
+- [#35](https://github.com/libreom/predirect/issues/35) Allow users to choose a specific frontend (eg-Piped,Invidious, Freetube) with select menu maybe
+- [#34](https://github.com/libreom/predirect/issues/34) Improve UX,Nothing happens after granting permissions
 - Detect permissions granted in popup and prompt for grant
-- ensure smooth update,addition and removal of sites
-- Update instances and remove dead ones (explore automation)
-- youtu.be handling
-- Refactor and updatable instance lists - probably through json (even consider new ota host permissions or at least updatable DNR rules with already acquired host permissions)
-- More advanced options page
-- CI/CD for publishing to stores
-- Consider freetube (Windows 7 port too)
+- [#6](https://github.com/libreom/predirect/issues/6) ensure smooth update,addition and removal of sites
+-[#28](https://github.com/libreom/predirect/issues/28)  Update instances and remove dead ones (explore automation)
+- Update Anonymous overflow handling for many new sites
+- [#16](https://github.com/libreom/predirect/issues/16) youtu.be handling
+- [#33](https://github.com/libreom/predirect/issues/33) Basic auth
+- [#7](https://github.com/libreom/predirect/issues/7) Refactor and updatable instance lists - probably through json (even consider new ota host permissions or at least updatable DNR rules with already acquired host permissions)
+- [#4](https://github.com/libreom/predirect/issues/4) More advanced options page
+- [#22](https://github.com/libreom/predirect/issues/22) CI/CD for publishing to stores
+- [#32](https://github.com/libreom/predirect/issues/32) Consider freetube (Windows 7 port too)
