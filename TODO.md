@@ -12,5 +12,5 @@
 - [#33](https://github.com/libreom/predirect/issues/33) Basic auth
 - [#7](https://github.com/libreom/predirect/issues/7) Refactor and updatable instance lists - probably through json (even consider new ota host permissions or at least updatable DNR rules with already acquired host permissions)
 - [#4](https://github.com/libreom/predirect/issues/4) More advanced options page
-- [#22](https://github.com/libreom/predirect/issues/22) CI/CD for publishing to stores
+- [#22](https://github.com/libreom/predirect/issues/22) CI/CD for publishing to stores chrome,edge,firefox
 - [#32](https://github.com/libreom/predirect/issues/32) Consider freetube (Windows 7 port too)
