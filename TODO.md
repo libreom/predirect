@@ -14,3 +14,4 @@
 - [#4](https://github.com/libreom/predirect/issues/4) More advanced options page
 - [#22](https://github.com/libreom/predirect/issues/22) CI/CD for publishing to stores chrome,edge,firefox
 - [#32](https://github.com/libreom/predirect/issues/32) Consider freetube (Windows 7 port too)
+- add pinterest, tenor, ifunny, tesktowo, bilibili, wikipedia,gitlab, wayback
