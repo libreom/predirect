@@ -1,12 +1,12 @@
-- [#27](https://github.com/libreom/predirect/issues/27)  ~~clarify custom instance format~~
+- [#27](https://github.com/libreom/predirect/issues/27) ~~clarify custom instance format~~
 - [#23](https://github.com/libreom/predirect/issues/23) ~~all host permissions optional and onboarding(parity to firefox - onboarding.js)~~
 - ~~Switch to declarativeNetRequestHostAccess~~
--  ~~Merge both chrome and firefox codebase(browser,chrome namespace & promises, callbacks- background.js,popup.js but separate manifest for now)~~
+- ~~Merge both chrome and firefox codebase(browser,chrome namespace & promises, callbacks- background.js,popup.js but separate manifest for now)~~
 - [#35](https://github.com/libreom/predirect/issues/35) Allow users to choose a specific frontend (eg-Piped,Invidious, Freetube) with select menu maybe
 - [#34](https://github.com/libreom/predirect/issues/34) Improve UX,Nothing happens after granting permissions
 - Detect permissions granted in popup and prompt for grant
 - [#6](https://github.com/libreom/predirect/issues/6) ensure smooth update,addition and removal of sites
--[#28](https://github.com/libreom/predirect/issues/28)  Update instances and remove dead ones (explore automation)
+- [#28](https://github.com/libreom/predirect/issues/28) Update instances and remove dead ones (explore automation)
 - Update Anonymous overflow handling for many new sites
 - [#16](https://github.com/libreom/predirect/issues/16) youtu.be handling
 - [#33](https://github.com/libreom/predirect/issues/33) Basic auth
