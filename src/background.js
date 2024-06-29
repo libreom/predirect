@@ -92,7 +92,6 @@ const twitterInstances = [
   "nitter.adminforge.de",
   "nitter.catsarch.com",
   "nitter.cz",
-  "nitter.esmailelbob.xyz",
   "nitter.eu.projectsegfau.lt",
   "nitter.in.projectsegfau.lt",
   "nitter.io.lol",
@@ -134,7 +133,6 @@ const tiktokInstances = [
 const quoraInstances = [
   "quetre.iket.me",
   "quetre.pussthecat.org",
-  "quetre.esmailelbob.xyz",
   "quetre.privacydev.net",
   "quetre.blackdrgn.nl",
   "quetre.lunar.icu",
@@ -159,7 +157,6 @@ const fandomInstances = [
 ];
 const imdbInstances = [
   "libremdb.pussthecat.org",
-  "libremdb.esmailelbob.xyz",
   "libremdb.iket.me",
   "ld.vern.cc",
   "binge.whatever.social",
@@ -172,14 +169,12 @@ const geniusInstances = [
   "dm.vern.cc",
   "sing.whatever.social",
   "dumb.lunar.icu",
-  "dumb.esmailelbob.xyz",
 ];
 const ytmusicInstances = [
   "beatbump.io",
   "bb.vern.cc",
   "bb.ggtyler.dev",
   "hyperpipe.surge.sh",
-  "hyperpipe.esmailelbob.xyz",
   "listen.whatever.social",
   "music.adminforge.de",
   "music.pfcd.me",
@@ -296,9 +291,8 @@ const soundcloudInstances = ["tubo.migalmoreno.com"];
 const udInstances = [
   "rd.vern.cc",
   "rd.bloat.cat",
-  "ruraldictionary.esmailelbob.xyz",
 ];
-const instructablesInstances = ["ds.vern.cc", "destructables.esmailelbob.xyz"];
+const instructablesInstances = ["ds.vern.cc"];
 const knowyourmemeInstances = ["mm.vern.cc"];
 const searchInstances = [
   "search.bus-hit.me",
@@ -317,7 +311,7 @@ const translateInstances = [
   "translate.bus-hit.me",
   "nyc1.mz.ggtyler.dev",
 ];
-const snopesInstances = ["sd.vern.cc", "suds.esmailelbob.xyz"];
+const snopesInstances = ["sd.vern.cc"];
 const reutersInstances = ["neuters.de"];
 const stackoverflowInstances = [
   "code.whatever.social",
